@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3" xmlns:ns1="http://schemas.android.com/tools"><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="D:\ChessApp\app\src\main\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main" generated-set="main$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~:!&lt;dir>navigation"><source path="D:\ChessApp\app\src\main\res"><file name="bg_card" path="D:\ChessApp\app\src\main\res\drawable\bg_card.xml" qualifiers="" type="drawable"/><file name="ic_launcher_foreground" path="D:\ChessApp\app\src\main\res\drawable\ic_launcher_foreground.xml" qualifiers="" type="drawable"/><file name="activity_about" path="D:\ChessApp\app\src\main\res\layout\activity_about.xml" qualifiers="" type="layout"/><file name="activity_game" path="D:\ChessApp\app\src\main\res\layout\activity_game.xml" qualifiers="" type="layout"/><file name="activity_game_mode" path="D:\ChessApp\app\src\main\res\layout\activity_game_mode.xml" qualifiers="" type="layout"/><file name="activity_main_menu" path="D:\ChessApp\app\src\main\res\layout\activity_main_menu.xml" qualifiers="" type="layout"/><file name="activity_pvp_setup" path="D:\ChessApp\app\src\main\res\layout\activity_pvp_setup.xml" qualifiers="" type="layout"/><file name="activity_settings" path="D:\ChessApp\app\src\main\res\layout\activity_settings.xml" qualifiers="" type="layout"/><file name="ic_launcher" path="D:\ChessApp\app\src\main\res\mipmap-hdpi\ic_launcher.xml" qualifiers="hdpi-v4" type="mipmap"/><file path="D:\ChessApp\app\src\main\res\values\colors.xml" qualifiers=""><color name="tier_advanced">#F59E0B</color><color name="tier_intermediate">#3B82F6</color><color name="brand_surface">#E5CDCE</color><color name="brand_primary">#EB8F9F</color><color name="brand_background">#4D7678</color><color name="brand_surface_variant">#D3BEAA</color><color name="board_highlight">#EFA4B2</color><color name="brand_primary_container">#EFA4B2</color><color name="tier_grandmaster">#EF4444</color><color name="brand_on_primary">#000000</color><color name="brand_outline">#7D6B58</color><color name="board_dark">#7D6B58</color><color name="brand_on_primary_container">#000000</color><color name="tier_beginner">#10B981</color><color name="board_last_move">#E5CDCE</color><color name="tier_magnus">#EC4899</color><color name="board_light">#D3BEAA</color><color name="tier_expert">#8B5CF6</color><color name="brand_error">#EF4444</color><color name="colorTextPrimaryOnSurface">#000000</color><color name="colorTextPrimaryOnBackground">#FFFFFF</color><color name="colorTextSecondaryOnSurface">#7D6B58</color><color name="colorTextSecondaryOnBackground">#F1DAE3</color><color name="surface">#E5CDCE</color><color name="brand_on_surface">#000000</color><color name="gradient_start">#4D7678</color><color name="primary">#EB8F9F</color><color name="brand_secondary">#4D7678</color><color name="gradient_end">#335253</color><color name="brand_surface_glass">#CCF0E4E5</color></file><file path="D:\ChessApp\app\src\main\res\values\strings.xml" qualifiers=""><string name="app_name">ChessMaster</string><string name="action_settings">Settings</string><string name="diff_grandmaster">Grandmaster</string><string name="diff_magnus">Magnus</string><string name="brand_name">CHESS MASTER</string><string name="menu_exit">EXIT</string><string name="msg_stalemate">STALEMATE</string><string name="action_hint">HINT</string><string name="diff_intermediate">Intermediate</string><string name="diff_expert">Expert</string><string name="label_player_name">Your Name</string><string name="desc_beginner">Focuses on basic moves. Great for learning.</string><string name="desc_expert">Deep strategic thinking. Few mistakes.</string><string name="menu_play_bot">PLAY COMPUTER</string><string name="setup_bot_title">Training Session</string><string name="status_black">Black to Move</string><string name="menu_settings">SETTINGS</string><string name="msg_thinking">Stockfish analyzing…</string><string name="menu_play_pvp">PASS &amp; PLAY</string><string name="menu_about">ABOUT</string><string name="about_desc">ChessMaster is a premium chess engine experience powered by Stockfish. Designed for players who demand precision and style.</string><string name="btn_start">INITIATE GAME</string><string name="setting_sounds">Sound Effects</string><string name="desc_intermediate">Understands simple tactics and positioning.</string><string name="settings_title">Preferences</string><string name="diff_beginner">Beginner</string><string name="action_resign">RESIGN</string><string name="desc_grandmaster">Near-perfect play. Professional level.</string><string name="msg_draw">DRAW</string><string name="desc_magnus">Maximum power. The ultimate challenge.</string><string name="setting_theme">Board Theme</string><string name="brand_tagline">Grandmaster Intelligence</string><string name="label_player_2">Black Player</string><string name="label_player_1">White Player</string><string name="msg_checkmate">CHECKMATE</string><string name="action_menu">MENU</string><string name="status_check">CHECK!</string><string name="action_undo">UNDO</string><string name="about_version">Version 2.0.0 (Mastery Edition)</string><string name="setup_pvp_title">Local Duel</string><string name="status_white">White to Move</string><string name="setting_haptics">Haptic Feedback</string><string name="label_difficulty">AI Proficiency</string><string name="game_over_title">BATTLE CONCLUDED</string><string name="btn_play_again">REMATCH</string><string name="btn_main_menu">MAIN MENU</string><string name="label_last_move">Last Move: %1$s</string><string name="default_log_entry">1. White starts...</string><string name="label_game_log">GAME LOG</string></file><file path="D:\ChessApp\app\src\main\res\values\themes.xml" qualifiers=""><style name="Theme.ChessApp" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        <item name="colorPrimary">@color/brand_primary</item>
+        <item name="colorOnPrimary">@color/brand_on_primary</item>
+        <item name="colorPrimaryContainer">@color/brand_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/brand_on_primary_container</item>
+
+        <item name="colorSecondary">#4D7678</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+
+        <item name="android:windowBackground">@color/brand_background</item>
+        <item name="colorSurface">@color/brand_surface</item>
+        <item name="colorOnSurface">@color/colorTextPrimaryOnSurface</item>
+        <item name="colorSurfaceVariant">@color/brand_surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/colorTextSecondaryOnSurface</item>
+
+        <item name="colorOutline">@color/brand_outline</item>
+        <item name="android:statusBarColor">@color/brand_background</item>
+        <item name="android:navigationBarColor">@color/brand_background</item>
+
+        
+        <item name="android:textColorPrimary">@color/colorTextPrimaryOnSurface</item>
+        <item name="android:textColorSecondary">@color/colorTextSecondaryOnSurface</item>
+
+        
+        <item name="materialButtonStyle">@style/Widget.ChessApp.Button.Main</item>
+        <item name="materialCardViewStyle">@style/Widget.ChessApp.Card.Glass</item>
+        <item name="textInputStyle">@style/Widget.ChessApp.Input.Outlined</item>
+    </style><style name="ShapeAppearance.ChessApp.Input" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerSize">@dimen/brand_corner_s</item>
+    </style><style name="Widget.ChessApp.Card.Glass" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">@dimen/brand_corner_l</item>
+        <item name="cardElevation">@dimen/brand_card_elevation</item>
+        <item name="cardBackgroundColor">@color/brand_surface</item>
+    </style><style name="Widget.ChessApp.Button.Tonal" parent="Widget.Material3.Button.TonalButton">
+        <item name="shapeAppearance">@style/ShapeAppearance.ChessApp.Button</item>
+        <item name="android:minHeight">@dimen/brand_button_height</item>
+    </style><style name="Widget.ChessApp.Button.Main" parent="Widget.Material3.Button">
+        <item name="shapeAppearance">@style/ShapeAppearance.ChessApp.Button</item>
+        <item name="android:minHeight">@dimen/brand_button_height</item>
+        <item name="android:paddingHorizontal">@dimen/brand_spacing_l</item>
+        <item name="android:letterSpacing">0.1</item>
+        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:textSize">@dimen/brand_text_label</item>
+        <item name="android:textColor">@color/brand_on_primary</item>
+    </style><style name="ShapeAppearance.ChessApp.Button" parent="ShapeAppearance.Material3.MediumComponent">
+        <item name="cornerSize">0dp</item>
+    </style><style name="TextAppearance.ChessApp.Headline" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:textSize">@dimen/brand_text_h3</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style><style name="TextAppearance.ChessApp.Label" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">@dimen/brand_text_label</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.1</item>
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+    </style><style name="Widget.ChessApp.Input.Outlined" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="shapeAppearance">@style/ShapeAppearance.ChessApp.Input</item>
+        <item name="boxStrokeColor">@color/brand_primary</item>
+        <item name="android:textColorHint">?attr/colorOnSurfaceVariant</item>
+    </style><style name="Widget.ChessApp.Input.Dropdown" parent="Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="shapeAppearance">@style/ShapeAppearance.ChessApp.Input</item>
+        <item name="boxStrokeColor">@color/brand_primary</item>
+        <item name="android:textColorHint">?attr/colorOnSurfaceVariant</item>
+        
+        <item name="materialThemeOverlay">@style/ThemeOverlay.ChessApp.ExposedDropdownMenu</item>
+    </style><style name="ThemeOverlay.ChessApp.ExposedDropdownMenu" parent="">
+        <item name="listPopupWindowStyle">@style/Widget.ChessApp.ListPopupWindow</item>
+    </style><style name="Widget.ChessApp.ListPopupWindow" parent="Widget.Material3.PopupMenu">
+        <item name="android:popupBackground">@drawable/bg_dropdown_menu</item>
+        
+        <item name="android:windowBlurBehindEnabled" ns1:targetApi="s">true</item>
+        <item name="android:windowBlurBehindRadius" ns1:targetApi="s">20dp</item>
+    </style></file><file path="D:\ChessApp\app\src\main\res\values-night\themes.xml" qualifiers="night-v8"><style name="Theme.ChessApp" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        <item name="colorPrimary">@color/brand_primary</item>
+        <item name="colorOnPrimary">@color/brand_on_primary</item>
+        <item name="colorPrimaryContainer">@color/brand_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/brand_on_primary_container</item>
+
+        <item name="colorSecondary">#4D7678</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+
+        <item name="android:windowBackground">@color/brand_background</item>
+        <item name="colorSurface">@color/brand_surface</item>
+        <item name="colorOnSurface">@color/colorTextPrimaryOnSurface</item>
+        <item name="colorSurfaceVariant">@color/brand_surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/colorTextSecondaryOnSurface</item>
+
+        <item name="colorOutline">@color/brand_outline</item>
+        <item name="android:statusBarColor">@color/brand_background</item>
+        <item name="android:navigationBarColor">@color/brand_background</item>
+
+        
+        <item name="android:textColorPrimary">@color/colorTextPrimaryOnSurface</item>
+        <item name="android:textColorSecondary">@color/colorTextSecondaryOnSurface</item>
+
+        
+        <item name="materialButtonStyle">@style/Widget.ChessApp.Button.Main</item>
+        <item name="materialCardViewStyle">@style/Widget.ChessApp.Card.Glass</item>
+        <item name="textInputStyle">@style/Widget.ChessApp.Input.Outlined</item>
+    </style></file><file name="btn_scale_down" path="D:\ChessApp\app\src\main\res\anim\btn_scale_down.xml" qualifiers="" type="anim"/><file name="btn_scale_up" path="D:\ChessApp\app\src\main\res\anim\btn_scale_up.xml" qualifiers="" type="anim"/><file name="bg_main_gradient" path="D:\ChessApp\app\src\main\res\drawable\bg_main_gradient.xml" qualifiers="" type="drawable"/><file name="bg_timer" path="D:\ChessApp\app\src\main\res\drawable\bg_timer.xml" qualifiers="" type="drawable"/><file name="ic_back" path="D:\ChessApp\app\src\main\res\drawable\ic_back.xml" qualifiers="" type="drawable"/><file name="ic_menu" path="D:\ChessApp\app\src\main\res\drawable\ic_menu.xml" qualifiers="" type="drawable"/><file name="ic_new_game" path="D:\ChessApp\app\src\main\res\drawable\ic_new_game.xml" qualifiers="" type="drawable"/><file name="ic_play" path="D:\ChessApp\app\src\main\res\drawable\ic_play.xml" qualifiers="" type="drawable"/><file name="ic_settings" path="D:\ChessApp\app\src\main\res\drawable\ic_settings.xml" qualifiers="" type="drawable"/><file name="ic_undo" path="D:\ChessApp\app\src\main\res\drawable\ic_undo.xml" qualifiers="" type="drawable"/><file path="D:\ChessApp\app\src\main\res\values\dimens.xml" qualifiers=""><dimen name="brand_text_h2">26sp</dimen><dimen name="pulse_max_scale">1.03</dimen><dimen name="brand_text_h3">20sp</dimen><dimen name="brand_text_h1">32sp</dimen><dimen name="brand_input_height">52dp</dimen><dimen name="timer_badge_width">70dp</dimen><dimen name="brand_spacing_xxl">36dp</dimen><dimen name="brand_dialog_elevation">8dp</dimen><dimen name="brand_text_h4">18sp</dimen><dimen name="brand_corner_m">8dp</dimen><dimen name="brand_corner_l">16dp</dimen><dimen name="brand_spacing_xl">24dp</dimen><dimen name="brand_corner_s">4dp</dimen><dimen name="brand_card_elevation">4dp</dimen><dimen name="brand_button_height">48dp</dimen><dimen name="brand_spacing_s">6dp</dimen><dimen name="timer_badge_height">28dp</dimen><dimen name="brand_spacing_xs">2dp</dimen><dimen name="player_avatar_size">40dp</dimen><dimen name="board_container_max_width">400dp</dimen><dimen name="brand_corner_xl">24dp</dimen><dimen name="brand_spacing_l">18dp</dimen><dimen name="brand_spacing_m">12dp</dimen><dimen name="brand_text_caption">10sp</dimen><dimen name="brand_text_body">14sp</dimen><dimen name="pulse_min_scale">0.97</dimen><dimen name="brand_text_label">12sp</dimen></file><file name="activity_pvbot_setup" path="D:\ChessApp\app\src\main\res\layout\activity_pvbot_setup.xml" qualifiers="" type="layout"/><file name="bg_main_menu" path="D:\ChessApp\app\src\main\res\drawable\bg_main_menu.xml" qualifiers="" type="drawable"/><file path="D:\ChessApp\app\src\main\res\values-night\colors.xml" qualifiers="night-v8"><color name="brand_surface">#2B2F3B</color><color name="brand_background">#194042</color><color name="brand_on_primary">#000000</color><color name="board_light">#D3BEAA</color><color name="brand_primary">#EB8F9F</color><color name="tier_grandmaster">#EF4444</color><color name="brand_primary_container">#EFA4B2</color><color name="brand_on_primary_container">#000000</color><color name="tier_magnus">#EC4899</color><color name="board_dark">#7D6B58</color><color name="tier_intermediate">#3B82F6</color><color name="tier_beginner">#10B981</color><color name="brand_outline">#7D6B58</color><color name="brand_surface_variant">#4D7678</color><color name="tier_expert">#8B5CF6</color><color name="board_highlight">#EFA4B2</color><color name="board_last_move">#E5CDCE</color><color name="tier_advanced">#F59E0B</color><color name="brand_error">#F87171</color><color name="colorTextSecondaryOnSurface">#F1DAE3</color><color name="colorTextPrimaryOnSurface">#FFFFFF</color><color name="colorTextPrimaryOnBackground">#FFFFFF</color><color name="colorTextSecondaryOnBackground">#F1DAE3</color><color name="brand_on_surface">#FFFFFF</color><color name="surface">#2B2F3B</color><color name="brand_secondary">#4D7678</color><color name="gradient_end">#0D2021</color><color name="primary">#EB8F9F</color><color name="gradient_start">#194042</color><color name="brand_surface_glass">#CC1E232E</color></file><file name="blink" path="D:\ChessApp\app\src\main\res\anim\blink.xml" qualifiers="" type="anim"/><file name="button_press" path="D:\ChessApp\app\src\main\res\anim\button_press.xml" qualifiers="" type="anim"/><file name="pulse_slow" path="D:\ChessApp\app\src\main\res\anim\pulse_slow.xml" qualifiers="" type="anim"/><file name="slide_down" path="D:\ChessApp\app\src\main\res\anim\slide_down.xml" qualifiers="" type="anim"/><file name="slide_up" path="D:\ChessApp\app\src\main\res\anim\slide_up.xml" qualifiers="" type="anim"/><file name="bg_chip_difficulty" path="D:\ChessApp\app\src\main\res\drawable\bg_chip_difficulty.xml" qualifiers="" type="drawable"/><file name="bg_outlined_card" path="D:\ChessApp\app\src\main\res\drawable\bg_outlined_card.xml" qualifiers="" type="drawable"/><file name="bg_turn_dot_black" path="D:\ChessApp\app\src\main\res\drawable\bg_turn_dot_black.xml" qualifiers="" type="drawable"/><file name="bg_turn_dot_white" path="D:\ChessApp\app\src\main\res\drawable\bg_turn_dot_white.xml" qualifiers="" type="drawable"/><file name="ic_about" path="D:\ChessApp\app\src\main\res\drawable\ic_about.xml" qualifiers="" type="drawable"/><file name="ic_check_badge" path="D:\ChessApp\app\src\main\res\drawable\ic_check_badge.xml" qualifiers="" type="drawable"/><file name="ic_exit" path="D:\ChessApp\app\src\main\res\drawable\ic_exit.xml" qualifiers="" type="drawable"/><file name="ic_network" path="D:\ChessApp\app\src\main\res\drawable\ic_network.xml" qualifiers="" type="drawable"/><file name="ic_pvb" path="D:\ChessApp\app\src\main\res\drawable\ic_pvb.xml" qualifiers="" type="drawable"/><file name="ic_pvp" path="D:\ChessApp\app\src\main\res\drawable\ic_pvp.xml" qualifiers="" type="drawable"/><file name="ripple_card" path="D:\ChessApp\app\src\main\res\drawable\ripple_card.xml" qualifiers="" type="drawable"/><file name="dialog_game_over" path="D:\ChessApp\app\src\main\res\layout\dialog_game_over.xml" qualifiers="" type="layout"/><file name="view_player_panel" path="D:\ChessApp\app\src\main\res\layout\view_player_panel.xml" qualifiers="" type="layout"/><file path="D:\ChessApp\app\src\main\res\values\attrs.xml" qualifiers=""><declare-styleable name="ChessBoardView">
+        
+        <attr format="color" name="lightSquareColor"/>
+        <attr format="color" name="darkSquareColor"/>
+        
+        <attr format="boolean" name="showLabels"/>
+        
+        <attr format="boolean" name="showHints"/>
+    </declare-styleable></file><file name="bg_player_panel_active" path="D:\ChessApp\app\src\main\res\drawable\bg_player_panel_active.xml" qualifiers="" type="drawable"/><file name="bg_player_panel_inactive" path="D:\ChessApp\app\src\main\res\drawable\bg_player_panel_inactive.xml" qualifiers="" type="drawable"/><file name="bg_thinking_dot" path="D:\ChessApp\app\src\main\res\drawable\bg_thinking_dot.xml" qualifiers="" type="drawable"/><file name="dialog_promotion" path="D:\ChessApp\app\src\main\res\layout\dialog_promotion.xml" qualifiers="" type="layout"/><file name="dialog_game_options" path="D:\ChessApp\app\src\main\res\layout\dialog_game_options.xml" qualifiers="" type="layout"/><file name="activity_game" path="D:\ChessApp\app\src\main\res\layout-land\activity_game.xml" qualifiers="land" type="layout"/><file name="bg_dropdown_menu" path="D:\ChessApp\app\src\main\res\drawable\bg_dropdown_menu.xml" qualifiers="" type="drawable"/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="D:\ChessApp\app\src\debug\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug" generated-set="debug$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~:!&lt;dir>navigation"><source path="D:\ChessApp\app\src\debug\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="D:\ChessApp\app\build\generated\res\resValues\debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated" generated-set="generated$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~:!&lt;dir>navigation"><source path="D:\ChessApp\app\build\generated\res\resValues\debug"/></dataSet><mergedItems><configuration qualifiers=""><declare-styleable name="ChessBoardView">
+        
+        <attr format="color" name="lightSquareColor"/>
+        <attr format="color" name="darkSquareColor"/>
+        
+        <attr format="boolean" name="showLabels"/>
+        
+        <attr format="boolean" name="showHints"/>
+    </declare-styleable></configuration></mergedItems></merger>

@@ -1,0 +1,2 @@
+ninja: Entering directory `D:\ChessApp\app\.cxx\Debug\2rv2z367\x86_64'
+ninja: no work to do.

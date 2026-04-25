@@ -1,0 +1,150 @@
+ninja: Entering directory `D:\ChessApp\app\.cxx\Debug\2rv2z367\armeabi-v7a'
+[1/19] Building CXX object CMakeFiles/chess_engine.dir/stockfish/memory.cpp.o
+FAILED: CMakeFiles/chess_engine.dir/stockfish/memory.cpp.o 
+C:\Users\jayan\AppData\Local\Android\Sdk\ndk\28.2.13676358\toolchains\llvm\prebuilt\windows-x86_64\bin\clang++.exe --target=armv7-none-linux-androideabi28 --sysroot=C:/Users/jayan/AppData/Local/Android/Sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DIS_64BIT -DNDEBUG -DNNUE_EMBEDDING_OFF -DUSE_PTHREADS -Dchess_engine_EXPORTS -Dmain=stockfish_main -ID:/ChessApp/app/src/main/cpp/stockfish -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -std=c++17 -O2 -fPIC -fno-limit-debug-info  -fPIC -O2 -fPIC -fno-rtti -Wall -Wno-unused-variable -Wno-unused-function -Wno-missing-braces -std=c++20 -MD -MT CMakeFiles/chess_engine.dir/stockfish/memory.cpp.o -MF CMakeFiles\chess_engine.dir\stockfish\memory.cpp.o.d -o CMakeFiles/chess_engine.dir/stockfish/memory.cpp.o -c D:/ChessApp/app/src/main/cpp/stockfish/memory.cpp
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/memory.cpp:19:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/memory.h:30:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/types.h:43:
+D:/ChessApp/app/src/main/cpp/stockfish/misc.h:370:44: error: __int128 is not supported on this target
+  370 |     __extension__ using uint128 = unsigned __int128;
+      |                                            ^
+1 error generated.
+[2/19] Building CXX object CMakeFiles/chess_engine.dir/stockfish/bitboard.cpp.o
+FAILED: CMakeFiles/chess_engine.dir/stockfish/bitboard.cpp.o 
+C:\Users\jayan\AppData\Local\Android\Sdk\ndk\28.2.13676358\toolchains\llvm\prebuilt\windows-x86_64\bin\clang++.exe --target=armv7-none-linux-androideabi28 --sysroot=C:/Users/jayan/AppData/Local/Android/Sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DIS_64BIT -DNDEBUG -DNNUE_EMBEDDING_OFF -DUSE_PTHREADS -Dchess_engine_EXPORTS -Dmain=stockfish_main -ID:/ChessApp/app/src/main/cpp/stockfish -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -std=c++17 -O2 -fPIC -fno-limit-debug-info  -fPIC -O2 -fPIC -fno-rtti -Wall -Wno-unused-variable -Wno-unused-function -Wno-missing-braces -std=c++20 -MD -MT CMakeFiles/chess_engine.dir/stockfish/bitboard.cpp.o -MF CMakeFiles\chess_engine.dir\stockfish\bitboard.cpp.o.d -o CMakeFiles/chess_engine.dir/stockfish/bitboard.cpp.o -c D:/ChessApp/app/src/main/cpp/stockfish/bitboard.cpp
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/bitboard.cpp:19:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/bitboard.h:32:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/types.h:43:
+D:/ChessApp/app/src/main/cpp/stockfish/misc.h:370:44: error: __int128 is not supported on this target
+  370 |     __extension__ using uint128 = unsigned __int128;
+      |                                            ^
+1 error generated.
+[3/19] Building CXX object CMakeFiles/chess_engine.dir/stockfish/movegen.cpp.o
+FAILED: CMakeFiles/chess_engine.dir/stockfish/movegen.cpp.o 
+C:\Users\jayan\AppData\Local\Android\Sdk\ndk\28.2.13676358\toolchains\llvm\prebuilt\windows-x86_64\bin\clang++.exe --target=armv7-none-linux-androideabi28 --sysroot=C:/Users/jayan/AppData/Local/Android/Sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DIS_64BIT -DNDEBUG -DNNUE_EMBEDDING_OFF -DUSE_PTHREADS -Dchess_engine_EXPORTS -Dmain=stockfish_main -ID:/ChessApp/app/src/main/cpp/stockfish -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -std=c++17 -O2 -fPIC -fno-limit-debug-info  -fPIC -O2 -fPIC -fno-rtti -Wall -Wno-unused-variable -Wno-unused-function -Wno-missing-braces -std=c++20 -MD -MT CMakeFiles/chess_engine.dir/stockfish/movegen.cpp.o -MF CMakeFiles\chess_engine.dir\stockfish\movegen.cpp.o.d -o CMakeFiles/chess_engine.dir/stockfish/movegen.cpp.o -c D:/ChessApp/app/src/main/cpp/stockfish/movegen.cpp
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/movegen.cpp:19:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/movegen.h:25:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/types.h:43:
+D:/ChessApp/app/src/main/cpp/stockfish/misc.h:370:44: error: __int128 is not supported on this target
+  370 |     __extension__ using uint128 = unsigned __int128;
+      |                                            ^
+1 error generated.
+[4/19] Building CXX object CMakeFiles/chess_engine.dir/stockfish/movepick.cpp.o
+FAILED: CMakeFiles/chess_engine.dir/stockfish/movepick.cpp.o 
+C:\Users\jayan\AppData\Local\Android\Sdk\ndk\28.2.13676358\toolchains\llvm\prebuilt\windows-x86_64\bin\clang++.exe --target=armv7-none-linux-androideabi28 --sysroot=C:/Users/jayan/AppData/Local/Android/Sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DIS_64BIT -DNDEBUG -DNNUE_EMBEDDING_OFF -DUSE_PTHREADS -Dchess_engine_EXPORTS -Dmain=stockfish_main -ID:/ChessApp/app/src/main/cpp/stockfish -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -std=c++17 -O2 -fPIC -fno-limit-debug-info  -fPIC -O2 -fPIC -fno-rtti -Wall -Wno-unused-variable -Wno-unused-function -Wno-missing-braces -std=c++20 -MD -MT CMakeFiles/chess_engine.dir/stockfish/movepick.cpp.o -MF CMakeFiles\chess_engine.dir\stockfish\movepick.cpp.o.d -o CMakeFiles/chess_engine.dir/stockfish/movepick.cpp.o -c D:/ChessApp/app/src/main/cpp/stockfish/movepick.cpp
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/movepick.cpp:19:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/movepick.h:22:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/history.h:32:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/memory.h:30:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/types.h:43:
+D:/ChessApp/app/src/main/cpp/stockfish/misc.h:370:44: error: __int128 is not supported on this target
+  370 |     __extension__ using uint128 = unsigned __int128;
+      |                                            ^
+1 error generated.
+[5/19] Building CXX object CMakeFiles/chess_engine.dir/stockfish/misc.cpp.o
+FAILED: CMakeFiles/chess_engine.dir/stockfish/misc.cpp.o 
+C:\Users\jayan\AppData\Local\Android\Sdk\ndk\28.2.13676358\toolchains\llvm\prebuilt\windows-x86_64\bin\clang++.exe --target=armv7-none-linux-androideabi28 --sysroot=C:/Users/jayan/AppData/Local/Android/Sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DIS_64BIT -DNDEBUG -DNNUE_EMBEDDING_OFF -DUSE_PTHREADS -Dchess_engine_EXPORTS -Dmain=stockfish_main -ID:/ChessApp/app/src/main/cpp/stockfish -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -std=c++17 -O2 -fPIC -fno-limit-debug-info  -fPIC -O2 -fPIC -fno-rtti -Wall -Wno-unused-variable -Wno-unused-function -Wno-missing-braces -std=c++20 -MD -MT CMakeFiles/chess_engine.dir/stockfish/misc.cpp.o -MF CMakeFiles\chess_engine.dir\stockfish\misc.cpp.o.d -o CMakeFiles/chess_engine.dir/stockfish/misc.cpp.o -c D:/ChessApp/app/src/main/cpp/stockfish/misc.cpp
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/misc.cpp:19:
+D:/ChessApp/app/src/main/cpp/stockfish/misc.h:370:44: error: __int128 is not supported on this target
+  370 |     __extension__ using uint128 = unsigned __int128;
+      |                                            ^
+1 error generated.
+[6/19] Building CXX object CMakeFiles/chess_engine.dir/stockfish/tt.cpp.o
+FAILED: CMakeFiles/chess_engine.dir/stockfish/tt.cpp.o 
+C:\Users\jayan\AppData\Local\Android\Sdk\ndk\28.2.13676358\toolchains\llvm\prebuilt\windows-x86_64\bin\clang++.exe --target=armv7-none-linux-androideabi28 --sysroot=C:/Users/jayan/AppData/Local/Android/Sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DIS_64BIT -DNDEBUG -DNNUE_EMBEDDING_OFF -DUSE_PTHREADS -Dchess_engine_EXPORTS -Dmain=stockfish_main -ID:/ChessApp/app/src/main/cpp/stockfish -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -std=c++17 -O2 -fPIC -fno-limit-debug-info  -fPIC -O2 -fPIC -fno-rtti -Wall -Wno-unused-variable -Wno-unused-function -Wno-missing-braces -std=c++20 -MD -MT CMakeFiles/chess_engine.dir/stockfish/tt.cpp.o -MF CMakeFiles\chess_engine.dir\stockfish\tt.cpp.o.d -o CMakeFiles/chess_engine.dir/stockfish/tt.cpp.o -c D:/ChessApp/app/src/main/cpp/stockfish/tt.cpp
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/tt.cpp:19:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/tt.h:26:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/memory.h:30:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/types.h:43:
+D:/ChessApp/app/src/main/cpp/stockfish/misc.h:370:44: error: __int128 is not supported on this target
+  370 |     __extension__ using uint128 = unsigned __int128;
+      |                                            ^
+1 error generated.
+[7/19] Building CXX object CMakeFiles/chess_engine.dir/stockfish/main.cpp.o
+FAILED: CMakeFiles/chess_engine.dir/stockfish/main.cpp.o 
+C:\Users\jayan\AppData\Local\Android\Sdk\ndk\28.2.13676358\toolchains\llvm\prebuilt\windows-x86_64\bin\clang++.exe --target=armv7-none-linux-androideabi28 --sysroot=C:/Users/jayan/AppData/Local/Android/Sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DIS_64BIT -DNDEBUG -DNNUE_EMBEDDING_OFF -DUSE_PTHREADS -Dchess_engine_EXPORTS -Dmain=stockfish_main -ID:/ChessApp/app/src/main/cpp/stockfish -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -std=c++17 -O2 -fPIC -fno-limit-debug-info  -fPIC -O2 -fPIC -fno-rtti -Wall -Wno-unused-variable -Wno-unused-function -Wno-missing-braces -std=c++20 -MD -MT CMakeFiles/chess_engine.dir/stockfish/main.cpp.o -MF CMakeFiles\chess_engine.dir\stockfish\main.cpp.o.d -o CMakeFiles/chess_engine.dir/stockfish/main.cpp.o -c D:/ChessApp/app/src/main/cpp/stockfish/main.cpp
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/main.cpp:22:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/bitboard.h:32:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/types.h:43:
+D:/ChessApp/app/src/main/cpp/stockfish/misc.h:370:44: error: __int128 is not supported on this target
+  370 |     __extension__ using uint128 = unsigned __int128;
+      |                                            ^
+1 error generated.
+[8/19] Building CXX object CMakeFiles/chess_engine.dir/stockfish/score.cpp.o
+FAILED: CMakeFiles/chess_engine.dir/stockfish/score.cpp.o 
+C:\Users\jayan\AppData\Local\Android\Sdk\ndk\28.2.13676358\toolchains\llvm\prebuilt\windows-x86_64\bin\clang++.exe --target=armv7-none-linux-androideabi28 --sysroot=C:/Users/jayan/AppData/Local/Android/Sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DIS_64BIT -DNDEBUG -DNNUE_EMBEDDING_OFF -DUSE_PTHREADS -Dchess_engine_EXPORTS -Dmain=stockfish_main -ID:/ChessApp/app/src/main/cpp/stockfish -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -std=c++17 -O2 -fPIC -fno-limit-debug-info  -fPIC -O2 -fPIC -fno-rtti -Wall -Wno-unused-variable -Wno-unused-function -Wno-missing-braces -std=c++20 -MD -MT CMakeFiles/chess_engine.dir/stockfish/score.cpp.o -MF CMakeFiles\chess_engine.dir\stockfish\score.cpp.o.d -o CMakeFiles/chess_engine.dir/stockfish/score.cpp.o -c D:/ChessApp/app/src/main/cpp/stockfish/score.cpp
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/score.cpp:19:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/score.h:25:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/types.h:43:
+D:/ChessApp/app/src/main/cpp/stockfish/misc.h:370:44: error: __int128 is not supported on this target
+  370 |     __extension__ using uint128 = unsigned __int128;
+      |                                            ^
+1 error generated.
+[9/19] Building CXX object CMakeFiles/chess_engine.dir/stockfish/position.cpp.o
+FAILED: CMakeFiles/chess_engine.dir/stockfish/position.cpp.o 
+C:\Users\jayan\AppData\Local\Android\Sdk\ndk\28.2.13676358\toolchains\llvm\prebuilt\windows-x86_64\bin\clang++.exe --target=armv7-none-linux-androideabi28 --sysroot=C:/Users/jayan/AppData/Local/Android/Sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DIS_64BIT -DNDEBUG -DNNUE_EMBEDDING_OFF -DUSE_PTHREADS -Dchess_engine_EXPORTS -Dmain=stockfish_main -ID:/ChessApp/app/src/main/cpp/stockfish -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -std=c++17 -O2 -fPIC -fno-limit-debug-info  -fPIC -O2 -fPIC -fno-rtti -Wall -Wno-unused-variable -Wno-unused-function -Wno-missing-braces -std=c++20 -MD -MT CMakeFiles/chess_engine.dir/stockfish/position.cpp.o -MF CMakeFiles\chess_engine.dir\stockfish\position.cpp.o.d -o CMakeFiles/chess_engine.dir/stockfish/position.cpp.o -c D:/ChessApp/app/src/main/cpp/stockfish/position.cpp
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/position.cpp:19:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/position.h:32:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/bitboard.h:32:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/types.h:43:
+D:/ChessApp/app/src/main/cpp/stockfish/misc.h:370:44: error: __int128 is not supported on this target
+  370 |     __extension__ using uint128 = unsigned __int128;
+      |                                            ^
+1 error generated.
+[10/19] Building CXX object CMakeFiles/chess_engine.dir/stockfish/evaluate.cpp.o
+FAILED: CMakeFiles/chess_engine.dir/stockfish/evaluate.cpp.o 
+C:\Users\jayan\AppData\Local\Android\Sdk\ndk\28.2.13676358\toolchains\llvm\prebuilt\windows-x86_64\bin\clang++.exe --target=armv7-none-linux-androideabi28 --sysroot=C:/Users/jayan/AppData/Local/Android/Sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DIS_64BIT -DNDEBUG -DNNUE_EMBEDDING_OFF -DUSE_PTHREADS -Dchess_engine_EXPORTS -Dmain=stockfish_main -ID:/ChessApp/app/src/main/cpp/stockfish -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -std=c++17 -O2 -fPIC -fno-limit-debug-info  -fPIC -O2 -fPIC -fno-rtti -Wall -Wno-unused-variable -Wno-unused-function -Wno-missing-braces -std=c++20 -MD -MT CMakeFiles/chess_engine.dir/stockfish/evaluate.cpp.o -MF CMakeFiles\chess_engine.dir\stockfish\evaluate.cpp.o.d -o CMakeFiles/chess_engine.dir/stockfish/evaluate.cpp.o -c D:/ChessApp/app/src/main/cpp/stockfish/evaluate.cpp
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/evaluate.cpp:19:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/evaluate.h:24:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/types.h:43:
+D:/ChessApp/app/src/main/cpp/stockfish/misc.h:370:44: error: __int128 is not supported on this target
+  370 |     __extension__ using uint128 = unsigned __int128;
+      |                                            ^
+1 error generated.
+[11/19] Building CXX object CMakeFiles/chess_engine.dir/stockfish/benchmark.cpp.o
+FAILED: CMakeFiles/chess_engine.dir/stockfish/benchmark.cpp.o 
+C:\Users\jayan\AppData\Local\Android\Sdk\ndk\28.2.13676358\toolchains\llvm\prebuilt\windows-x86_64\bin\clang++.exe --target=armv7-none-linux-androideabi28 --sysroot=C:/Users/jayan/AppData/Local/Android/Sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DIS_64BIT -DNDEBUG -DNNUE_EMBEDDING_OFF -DUSE_PTHREADS -Dchess_engine_EXPORTS -Dmain=stockfish_main -ID:/ChessApp/app/src/main/cpp/stockfish -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -std=c++17 -O2 -fPIC -fno-limit-debug-info  -fPIC -O2 -fPIC -fno-rtti -Wall -Wno-unused-variable -Wno-unused-function -Wno-missing-braces -std=c++20 -MD -MT CMakeFiles/chess_engine.dir/stockfish/benchmark.cpp.o -MF CMakeFiles\chess_engine.dir\stockfish\benchmark.cpp.o.d -o CMakeFiles/chess_engine.dir/stockfish/benchmark.cpp.o -c D:/ChessApp/app/src/main/cpp/stockfish/benchmark.cpp
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/benchmark.cpp:20:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/numa.h:40:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/shm.h:48:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/types.h:43:
+D:/ChessApp/app/src/main/cpp/stockfish/misc.h:370:44: error: __int128 is not supported on this target
+  370 |     __extension__ using uint128 = unsigned __int128;
+      |                                            ^
+1 error generated.
+[12/19] Building CXX object CMakeFiles/chess_engine.dir/stockfish/search.cpp.o
+FAILED: CMakeFiles/chess_engine.dir/stockfish/search.cpp.o 
+C:\Users\jayan\AppData\Local\Android\Sdk\ndk\28.2.13676358\toolchains\llvm\prebuilt\windows-x86_64\bin\clang++.exe --target=armv7-none-linux-androideabi28 --sysroot=C:/Users/jayan/AppData/Local/Android/Sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DIS_64BIT -DNDEBUG -DNNUE_EMBEDDING_OFF -DUSE_PTHREADS -Dchess_engine_EXPORTS -Dmain=stockfish_main -ID:/ChessApp/app/src/main/cpp/stockfish -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -std=c++17 -O2 -fPIC -fno-limit-debug-info  -fPIC -O2 -fPIC -fno-rtti -Wall -Wno-unused-variable -Wno-unused-function -Wno-missing-braces -std=c++20 -MD -MT CMakeFiles/chess_engine.dir/stockfish/search.cpp.o -MF CMakeFiles\chess_engine.dir\stockfish\search.cpp.o.d -o CMakeFiles/chess_engine.dir/stockfish/search.cpp.o -c D:/ChessApp/app/src/main/cpp/stockfish/search.cpp
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/search.cpp:19:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/search.h:35:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/history.h:32:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/memory.h:30:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/types.h:43:
+D:/ChessApp/app/src/main/cpp/stockfish/misc.h:370:44: error: __int128 is not supported on this target
+  370 |     __extension__ using uint128 = unsigned __int128;
+      |                                            ^
+1 error generated.
+[13/19] Building CXX object CMakeFiles/chess_engine.dir/stockfish/engine.cpp.o
+FAILED: CMakeFiles/chess_engine.dir/stockfish/engine.cpp.o 
+C:\Users\jayan\AppData\Local\Android\Sdk\ndk\28.2.13676358\toolchains\llvm\prebuilt\windows-x86_64\bin\clang++.exe --target=armv7-none-linux-androideabi28 --sysroot=C:/Users/jayan/AppData/Local/Android/Sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DIS_64BIT -DNDEBUG -DNNUE_EMBEDDING_OFF -DUSE_PTHREADS -Dchess_engine_EXPORTS -Dmain=stockfish_main -ID:/ChessApp/app/src/main/cpp/stockfish -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -std=c++17 -O2 -fPIC -fno-limit-debug-info  -fPIC -O2 -fPIC -fno-rtti -Wall -Wno-unused-variable -Wno-unused-function -Wno-missing-braces -std=c++20 -MD -MT CMakeFiles/chess_engine.dir/stockfish/engine.cpp.o -MF CMakeFiles\chess_engine.dir\stockfish\engine.cpp.o.d -o CMakeFiles/chess_engine.dir/stockfish/engine.cpp.o -c D:/ChessApp/app/src/main/cpp/stockfish/engine.cpp
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/engine.cpp:19:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/engine.h:33:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/history.h:32:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/memory.h:30:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/types.h:43:
+D:/ChessApp/app/src/main/cpp/stockfish/misc.h:370:44: error: __int128 is not supported on this target
+  370 |     __extension__ using uint128 = unsigned __int128;
+      |                                            ^
+1 error generated.
+[14/19] Building CXX object CMakeFiles/chess_engine.dir/stockfish/thread.cpp.o
+FAILED: CMakeFiles/chess_engine.dir/stockfish/thread.cpp.o 
+C:\Users\jayan\AppData\Local\Android\Sdk\ndk\28.2.13676358\toolchains\llvm\prebuilt\windows-x86_64\bin\clang++.exe --target=armv7-none-linux-androideabi28 --sysroot=C:/Users/jayan/AppData/Local/Android/Sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DIS_64BIT -DNDEBUG -DNNUE_EMBEDDING_OFF -DUSE_PTHREADS -Dchess_engine_EXPORTS -Dmain=stockfish_main -ID:/ChessApp/app/src/main/cpp/stockfish -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -std=c++17 -O2 -fPIC -fno-limit-debug-info  -fPIC -O2 -fPIC -fno-rtti -Wall -Wno-unused-variable -Wno-unused-function -Wno-missing-braces -std=c++20 -MD -MT CMakeFiles/chess_engine.dir/stockfish/thread.cpp.o -MF CMakeFiles\chess_engine.dir\stockfish\thread.cpp.o.d -o CMakeFiles/chess_engine.dir/stockfish/thread.cpp.o -c D:/ChessApp/app/src/main/cpp/stockfish/thread.cpp
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/thread.cpp:19:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/thread.h:31:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/memory.h:30:
+In file included from D:/ChessApp/app/src/main/cpp/stockfish/types.h:43:
+D:/ChessApp/app/src/main/cpp/stockfish/misc.h:370:44: error: __int128 is not supported on this target
+  370 |     __extension__ using uint128 = unsigned __int128;
+      |                                            ^
+1 error generated.
+ninja: build stopped: subcommand failed.

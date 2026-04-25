@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="board_dark">#7D6B58</color>
+    <color name="board_highlight">#EFA4B2</color>
+    <color name="board_last_move">#E5CDCE</color>
+    <color name="board_light">#D3BEAA</color>
+    <color name="brand_background">#194042</color>
+    <color name="brand_error">#F87171</color>
+    <color name="brand_on_primary">#000000</color>
+    <color name="brand_on_primary_container">#000000</color>
+    <color name="brand_on_surface">#FFFFFF</color>
+    <color name="brand_outline">#7D6B58</color>
+    <color name="brand_primary">#EB8F9F</color>
+    <color name="brand_primary_container">#EFA4B2</color>
+    <color name="brand_secondary">#4D7678</color>
+    <color name="brand_surface">#2B2F3B</color>
+    <color name="brand_surface_glass">#CC1E232E</color>
+    <color name="brand_surface_variant">#4D7678</color>
+    <color name="colorTextPrimaryOnBackground">#FFFFFF</color>
+    <color name="colorTextPrimaryOnSurface">#FFFFFF</color>
+    <color name="colorTextSecondaryOnBackground">#F1DAE3</color>
+    <color name="colorTextSecondaryOnSurface">#F1DAE3</color>
+    <color name="gradient_end">#0D2021</color>
+    <color name="gradient_start">#194042</color>
+    <color name="primary">#EB8F9F</color>
+    <color name="surface">#2B2F3B</color>
+    <color name="tier_advanced">#F59E0B</color>
+    <color name="tier_beginner">#10B981</color>
+    <color name="tier_expert">#8B5CF6</color>
+    <color name="tier_grandmaster">#EF4444</color>
+    <color name="tier_intermediate">#3B82F6</color>
+    <color name="tier_magnus">#EC4899</color>
+    <style name="Theme.ChessApp" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        <item name="colorPrimary">@color/brand_primary</item>
+        <item name="colorOnPrimary">@color/brand_on_primary</item>
+        <item name="colorPrimaryContainer">@color/brand_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/brand_on_primary_container</item>
+
+        <item name="colorSecondary">#4D7678</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+
+        <item name="android:windowBackground">@color/brand_background</item>
+        <item name="colorSurface">@color/brand_surface</item>
+        <item name="colorOnSurface">@color/colorTextPrimaryOnSurface</item>
+        <item name="colorSurfaceVariant">@color/brand_surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/colorTextSecondaryOnSurface</item>
+
+        <item name="colorOutline">@color/brand_outline</item>
+        <item name="android:statusBarColor">@color/brand_background</item>
+        <item name="android:navigationBarColor">@color/brand_background</item>
+
+        
+        <item name="android:textColorPrimary">@color/colorTextPrimaryOnSurface</item>
+        <item name="android:textColorSecondary">@color/colorTextSecondaryOnSurface</item>
+
+        
+        <item name="materialButtonStyle">@style/Widget.ChessApp.Button.Main</item>
+        <item name="materialCardViewStyle">@style/Widget.ChessApp.Card.Glass</item>
+        <item name="textInputStyle">@style/Widget.ChessApp.Input.Outlined</item>
+    </style>
+</resources>

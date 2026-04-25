@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand Spacing -->
+    <dimen name="brand_spacing_xs">2dp</dimen>
+    <dimen name="brand_spacing_s">6dp</dimen>
+    <dimen name="brand_spacing_m">12dp</dimen>
+    <dimen name="brand_spacing_l">18dp</dimen>
+    <dimen name="brand_spacing_xl">24dp</dimen>
+    <dimen name="brand_spacing_xxl">36dp</dimen>
+
+    <!-- UI Geometry -->
+    <dimen name="brand_corner_s">4dp</dimen>
+    <dimen name="brand_corner_m">8dp</dimen>
+    <dimen name="brand_corner_l">16dp</dimen>
+    <dimen name="brand_corner_xl">24dp</dimen>
+
+    <!-- Component Heights -->
+    <dimen name="brand_button_height">48dp</dimen>
+    <dimen name="brand_input_height">52dp</dimen>
+    <dimen name="brand_card_elevation">4dp</dimen>
+    <dimen name="brand_dialog_elevation">8dp</dimen>
+
+    <!-- Typography (Scale-Informed) -->
+    <dimen name="brand_text_h1">32sp</dimen>
+    <dimen name="brand_text_h2">26sp</dimen>
+    <dimen name="brand_text_h3">20sp</dimen>
+    <dimen name="brand_text_h4">18sp</dimen>
+    <dimen name="brand_text_body">14sp</dimen>
+    <dimen name="brand_text_label">12sp</dimen>
+    <dimen name="brand_text_caption">10sp</dimen>
+
+    <!-- Specific Widgets -->
+    <dimen name="board_container_max_width">400dp</dimen>
+    <dimen name="player_avatar_size">40dp</dimen>
+    <dimen name="timer_badge_width">70dp</dimen>
+    <dimen name="timer_badge_height">28dp</dimen>
+
+    <!-- Animations -->
+    <dimen name="pulse_min_scale">0.97</dimen>
+    <dimen name="pulse_max_scale">1.03</dimen>
+</resources>

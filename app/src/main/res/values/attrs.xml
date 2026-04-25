@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ChessBoardView">
+        <!-- Square colors, can be overridden from XML -->
+        <attr name="lightSquareColor" format="color"/>
+        <attr name="darkSquareColor"  format="color"/>
+        <!-- Whether to show rank/file labels -->
+        <attr name="showLabels" format="boolean"/>
+        <!-- Whether to show move hint dots by default -->
+        <attr name="showHints"  format="boolean"/>
+    </declare-styleable>
+
+</resources>

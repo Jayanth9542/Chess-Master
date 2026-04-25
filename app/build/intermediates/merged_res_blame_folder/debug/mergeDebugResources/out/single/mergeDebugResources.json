@@ -1,0 +1,190 @@
+[
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\layout-land_activity_game.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\layout-land\\activity_game.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\drawable_bg_chip_difficulty.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\drawable\\bg_chip_difficulty.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\drawable_ic_settings.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\drawable\\ic_settings.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\mipmap-hdpi_ic_launcher.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\mipmap-hdpi\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\drawable_bg_player_panel_inactive.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\drawable\\bg_player_panel_inactive.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\layout_activity_settings.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\layout\\activity_settings.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\drawable_ic_exit.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\drawable\\ic_exit.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\drawable_ic_play.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\drawable\\ic_play.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\layout_activity_game.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\layout\\activity_game.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\layout_view_player_panel.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\layout\\view_player_panel.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\drawable_bg_turn_dot_black.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\drawable\\bg_turn_dot_black.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\drawable_ic_network.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\drawable\\ic_network.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\layout_dialog_promotion.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\layout\\dialog_promotion.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\layout_activity_game_mode.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\layout\\activity_game_mode.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\drawable_ic_new_game.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\drawable\\ic_new_game.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\drawable_bg_turn_dot_white.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\drawable\\bg_turn_dot_white.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\drawable_ic_check_badge.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\drawable\\ic_check_badge.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\anim_pulse_slow.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\anim\\pulse_slow.xml"
+    },
+    {
+        "merged": "com.chessapp-debug-32:/drawable_bg_dropdown_menu.xml.flat",
+        "source": "com.chessapp-main-34:/drawable/bg_dropdown_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\layout_dialog_game_over.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\layout\\dialog_game_over.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\anim_button_press.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\anim\\button_press.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\anim_btn_scale_down.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\anim\\btn_scale_down.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\drawable_ic_back.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\drawable\\ic_back.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\layout_activity_pvp_setup.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\layout\\activity_pvp_setup.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\anim_slide_up.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\anim\\slide_up.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\anim_slide_down.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\anim\\slide_down.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\drawable_ic_pvb.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\drawable\\ic_pvb.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\drawable_bg_outlined_card.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\drawable\\bg_outlined_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\drawable_bg_card.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\drawable\\bg_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\layout_activity_pvbot_setup.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\layout\\activity_pvbot_setup.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\drawable_ic_about.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\drawable\\ic_about.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\drawable_ripple_card.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\drawable\\ripple_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\anim_btn_scale_up.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\anim\\btn_scale_up.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\drawable_bg_timer.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\drawable\\bg_timer.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\drawable\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\drawable_ic_pvp.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\drawable\\ic_pvp.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\layout_activity_about.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\layout\\activity_about.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\layout_dialog_game_options.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\layout\\dialog_game_options.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\drawable_bg_player_panel_active.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\drawable\\bg_player_panel_active.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\drawable_bg_button_main.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\drawable\\bg_button_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\anim_blink.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\anim\\blink.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\drawable_bg_main_menu.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\drawable\\bg_main_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\drawable_ic_undo.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\drawable\\ic_undo.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\drawable_bg_main_gradient.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\drawable\\bg_main_gradient.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\layout_activity_main_menu.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\layout\\activity_main_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\drawable_bg_thinking_dot.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\drawable\\bg_thinking_dot.xml"
+    },
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-debug-32:\\drawable_ic_menu.xml.flat",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\drawable\\ic_menu.xml"
+    }
+]

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_main_menu">
+
+    <!-- Header: Status Bar & Settings -->
+    <LinearLayout
+        android:id="@+id/game_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/brand_spacing_m"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_back"
+            style="@style/Widget.Material3.Button.IconButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_back"
+            app:iconTint="?attr/colorOnSurface" />
+
+        <TextView
+            android:id="@+id/tv_game_status"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/status_white"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="@dimen/brand_text_h4" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_settings_game"
+            style="@style/Widget.Material3.Button.IconButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_settings"
+            app:iconTint="?attr/colorOnSurface" />
+    </LinearLayout>
+
+    <!-- Player 2 (Top) -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_player_top"
+        style="@style/Widget.ChessApp.Card.Glass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/brand_spacing_m"
+        android:layout_marginTop="@dimen/brand_spacing_s"
+        app:layout_constraintTop_toBottomOf="@id/game_header">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/brand_spacing_m">
+
+            <TextView
+                android:id="@+id/tv_player2_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Black"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="@dimen/brand_text_body" />
+
+            <TextView
+                android:id="@+id/tv_black_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="10:00"
+                android:fontFamily="monospace"
+                android:textColor="?attr/colorSecondary"
+                android:textSize="@dimen/brand_text_h4"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Chess Board -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/board_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/brand_spacing_s"
+        app:cardCornerRadius="@dimen/brand_corner_m"
+        app:cardElevation="8dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_player_top"
+        app:layout_constraintBottom_toTopOf="@id/card_player_bottom">
+
+        <com.chessapp.views.ChessBoardView
+            android:id="@+id/chess_board_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Move History Label -->
+    <TextView
+        android:id="@+id/tv_last_move"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/brand_spacing_s"
+        android:alpha="0.7"
+        android:fontFamily="monospace"
+        android:text="@string/label_last_move"
+        android:textColor="?attr/colorOnSurfaceVariant"
+        android:textSize="@dimen/brand_text_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/board_container" />
+
+    <!-- Log Sheet / Game History -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_log_sheet"
+        style="@style/Widget.ChessApp.Card.Glass"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/brand_spacing_m"
+        android:layout_marginTop="@dimen/brand_spacing_s"
+        android:layout_marginBottom="@dimen/brand_spacing_s"
+        app:layout_constraintTop_toBottomOf="@id/tv_last_move"
+        app:layout_constraintBottom_toTopOf="@id/card_player_bottom">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/brand_spacing_s">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_game_log"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textColor="?attr/colorPrimary"
+                android:layout_gravity="center_horizontal"
+                android:alpha="0.6"/>
+
+            <ScrollView
+                android:id="@+id/scroll_log"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    android:id="@+id/tv_game_log"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:text="@string/default_log_entry"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    android:textSize="12sp" />
+            </ScrollView>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Player 1 (Bottom) -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_player_bottom"
+        style="@style/Widget.ChessApp.Card.Glass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/brand_spacing_m"
+        android:layout_marginBottom="@dimen/brand_spacing_s"
+        app:layout_constraintBottom_toTopOf="@id/game_controls">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/brand_spacing_m">
+
+            <TextView
+                android:id="@+id/tv_player1_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="White"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="@dimen/brand_text_body" />
+
+            <TextView
+                android:id="@+id/tv_white_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="10:00"
+                android:fontFamily="monospace"
+                android:textColor="?attr/colorSecondary"
+                android:textSize="@dimen/brand_text_h4"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Controls -->
+    <LinearLayout
+        android:id="@+id/game_controls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/brand_spacing_m"
+        android:paddingBottom="@dimen/brand_spacing_m"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_options"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/brand_button_height"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:padding="0dp"
+            android:text="Options"
+            android:textSize="10sp"
+            app:icon="@drawable/ic_menu"
+            app:iconGravity="top"
+            app:iconSize="18dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_resign"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/brand_button_height"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:padding="0dp"
+            android:text="Resign"
+            android:textSize="10sp"
+            app:icon="@drawable/ic_exit"
+            app:iconGravity="top"
+            app:iconSize="18dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_hint"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/brand_button_height"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:padding="0dp"
+            android:text="Hint"
+            android:textSize="10sp"
+            app:icon="@drawable/ic_about"
+            app:iconGravity="top"
+            app:iconSize="18dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_undo"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/brand_button_height"
+            android:layout_weight="1"
+            android:padding="0dp"
+            android:text="Undo"
+            android:textSize="10sp"
+            app:icon="@drawable/ic_undo"
+            app:iconGravity="top"
+            app:iconSize="18dp" />
+
+    </LinearLayout>
+
+    <!-- Progress Overlay -->
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progress_thinking"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:indicatorColor="@color/brand_primary"
+        app:layout_constraintBottom_toTopOf="@id/game_controls" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

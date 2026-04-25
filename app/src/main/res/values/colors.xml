@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="brand_background">#4D7678</color>
+    <color name="brand_surface">#E5CDCE</color>
+    <color name="brand_surface_glass">#CCF0E4E5</color> <!-- Light glass -->
+    <color name="brand_surface_variant">#D3BEAA</color>
+
+    <color name="brand_primary">#EB8F9F</color>
+    <color name="brand_on_primary">#000000</color>
+    <color name="brand_primary_container">#EFA4B2</color>
+    <color name="brand_on_primary_container">#000000</color>
+
+    <!-- Semantic Text Colors -->
+    <!-- Rule: Light background (#E5CDCE) -> black text -->
+    <!-- Rule: Dark background (#4D7678) -> white text -->
+    <color name="colorTextPrimaryOnBackground">#FFFFFF</color>
+    <color name="colorTextSecondaryOnBackground">#F1DAE3</color>
+
+    <color name="colorTextPrimaryOnSurface">#000000</color>
+    <color name="colorTextSecondaryOnSurface">#7D6B58</color>
+
+    <color name="brand_outline">#7D6B58</color>
+
+    <color name="brand_secondary">#4D7678</color>
+    <color name="brand_on_surface">#000000</color>
+    <color name="surface">#E5CDCE</color>
+    <color name="primary">#EB8F9F</color>
+    <color name="gradient_start">#4D7678</color>
+    <color name="gradient_end">#335253</color>
+
+    <!-- Chess Board -->
+    <color name="board_light">#D3BEAA</color>
+    <color name="board_dark">#7D6B58</color>
+    <color name="board_highlight">#EFA4B2</color>
+    <color name="board_last_move">#E5CDCE</color>
+
+    <!-- Difficulty System -->
+    <color name="tier_beginner">#10B981</color>
+    <color name="tier_intermediate">#3B82F6</color>
+    <color name="tier_advanced">#F59E0B</color>
+    <color name="tier_expert">#8B5CF6</color>
+    <color name="tier_grandmaster">#EF4444</color>
+    <color name="tier_magnus">#EC4899</color>
+
+    <color name="brand_error">#EF4444</color>
+</resources>

@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-mergeDebugResources-31:\\layout-land\\activity_game.xml",
+        "source": "C:\\Users\\jayan\\.gradle\\daemon\\9.3.1\\com.chessapp-main-34:\\layout-land\\activity_game.xml"
+    },
+    {
+        "merged": "com.chessapp-mergeDebugResources-31:/layout-land/activity_game.xml",
+        "source": "com.chessapp-main-34:/layout-land/activity_game.xml"
+    }
+]

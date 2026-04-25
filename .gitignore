@@ -1,0 +1,13 @@
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+# Do NOT commit Stockfish source files you downloaded separately
+app/src/main/cpp/stockfish/*.cpp
+app/src/main/cpp/stockfish/*.h

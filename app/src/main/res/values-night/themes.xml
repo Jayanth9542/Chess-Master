@@ -1,0 +1,32 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Dark Mode Theme -->
+    <style name="Theme.ChessApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Core Color Mapping -->
+        <item name="colorPrimary">@color/brand_primary</item>
+        <item name="colorOnPrimary">@color/brand_on_primary</item>
+        <item name="colorPrimaryContainer">@color/brand_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/brand_on_primary_container</item>
+
+        <item name="colorSecondary">#4D7678</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+
+        <item name="android:windowBackground">@color/brand_background</item>
+        <item name="colorSurface">@color/brand_surface</item>
+        <item name="colorOnSurface">@color/colorTextPrimaryOnSurface</item>
+        <item name="colorSurfaceVariant">@color/brand_surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/colorTextSecondaryOnSurface</item>
+
+        <item name="colorOutline">@color/brand_outline</item>
+        <item name="android:statusBarColor">@color/brand_background</item>
+        <item name="android:navigationBarColor">@color/brand_background</item>
+
+        <!-- Custom Semantic Text Attributes -->
+        <item name="android:textColorPrimary">@color/colorTextPrimaryOnSurface</item>
+        <item name="android:textColorSecondary">@color/colorTextSecondaryOnSurface</item>
+
+        <!-- Component Branding -->
+        <item name="materialButtonStyle">@style/Widget.ChessApp.Button.Main</item>
+        <item name="materialCardViewStyle">@style/Widget.ChessApp.Card.Glass</item>
+        <item name="textInputStyle">@style/Widget.ChessApp.Input.Outlined</item>
+    </style>
+</resources>
