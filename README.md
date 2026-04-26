@@ -14,8 +14,6 @@
 
 <br/>
 
-![Chess Board Preview](docs/preview_placeholder.png)
-
 > *Play locally with a friend or go head-to-head against one of the world's strongest chess engines at five difficulty levels — from casual to Magnus-level.*
 
 </div>
