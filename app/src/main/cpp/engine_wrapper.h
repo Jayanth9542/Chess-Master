@@ -64,8 +64,6 @@ private:
     std::atomic<bool> running_;
 
     static void* engineThreadFunc(void* arg);
-
-    void pthread_timedjoin_np(pthread_t thread, void *pVoid, timespec *pTimespec);
 };
 
 } // namespace chess

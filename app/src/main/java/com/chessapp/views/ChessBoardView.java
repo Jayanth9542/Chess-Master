@@ -1,5 +1,8 @@
 package com.chessapp.views;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -9,6 +12,7 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.DecelerateInterpolator;
 
 import com.chessapp.model.ChessBoard;
 import com.chessapp.model.ChessPiece;
@@ -19,15 +23,6 @@ import java.util.List;
 
 /**
  * Fully custom chess board View drawn on Canvas.
- *
- * Features:
- *  - 8×8 alternating light/dark squares
- *  - Piece Unicode symbols scaled to cell size
- *  - Touch selection with blue highlight ring
- *  - Green dot highlights for legal destination squares
- *  - Red tint on the king's square when in check
- *  - Rank/file labels (a-h, 1-8)
- *  - Callbacks via OnMoveSelectedListener
  */
 public class ChessBoardView extends View {
 
@@ -57,11 +52,17 @@ public class ChessBoardView extends View {
     private int  selectedCol = -1;
     private List<Move>  legalMoves      = new ArrayList<>();
     private Move        lastMove        = null;
-    private boolean     flipped         = false;   // flip for black's perspective
+    private boolean     flipped         = false;
     private boolean     engineThinking  = false;
+    private boolean     animationsEnabled = true;
 
     private float cellSize;
-    private float boardOffset; // small inset for labels
+    private float boardOffset;
+
+    // ── Animation ─────────────────────────────────────────────────────
+    private Move animatingMove = null;
+    private float animProgress = 0f; // 0 to 1
+    private ValueAnimator moveAnimator;
 
     public interface OnMoveSelectedListener {
         void onMoveSelected(Move move);
@@ -94,15 +95,9 @@ public class ChessBoardView extends View {
         dotPaint.setStyle(Paint.Style.FILL);
     }
 
-    // ──────────────────────────────────────────────────────────────────
-    //  Measure: always square
-    // ──────────────────────────────────────────────────────────────────
     @Override
     protected void onMeasure(int wSpec, int hSpec) {
-        int size = Math.min(
-            MeasureSpec.getSize(wSpec),
-            MeasureSpec.getSize(hSpec)
-        );
+        int size = Math.min(MeasureSpec.getSize(wSpec), MeasureSpec.getSize(hSpec));
         setMeasuredDimension(size, size);
     }
 
@@ -119,15 +114,13 @@ public class ChessBoardView extends View {
         shadowPaint.setTextSize(pieceSz);
     }
 
-    // ──────────────────────────────────────────────────────────────────
-    //  Draw
-    // ──────────────────────────────────────────────────────────────────
     @Override
     protected void onDraw(Canvas canvas) {
         if (board == null) return;
         drawSquares(canvas);
         drawLabels(canvas);
         drawPieces(canvas);
+        drawAnimatingPiece(canvas);
     }
 
     private void drawSquares(Canvas canvas) {
@@ -138,11 +131,9 @@ public class ChessBoardView extends View {
                 float x = boardOffset + drawC * cellSize;
                 float y = boardOffset + drawR * cellSize;
 
-                // Base square colour
                 squarePaint.setColor(((r + c) % 2 == 0) ? CLR_LIGHT : CLR_DARK);
                 canvas.drawRect(x, y, x + cellSize, y + cellSize, squarePaint);
 
-                // Last move highlight
                 if (lastMove != null &&
                         ((r == lastMove.fromRow && c == lastMove.fromCol) ||
                          (r == lastMove.toRow   && c == lastMove.toCol))) {
@@ -150,13 +141,11 @@ public class ChessBoardView extends View {
                     canvas.drawRect(x, y, x + cellSize, y + cellSize, overlayPaint);
                 }
 
-                // Selected square
                 if (r == selectedRow && c == selectedCol) {
                     overlayPaint.setColor(CLR_SELECTED);
                     canvas.drawRect(x, y, x + cellSize, y + cellSize, overlayPaint);
                 }
 
-                // Check highlight on king
                 if (board.isInCheck()) {
                     ChessPiece p = board.getPieceAt(r, c);
                     if (p != null && p.getType() == ChessPiece.Type.KING
@@ -167,7 +156,6 @@ public class ChessBoardView extends View {
                     }
                 }
 
-                // Legal move dots
                 if (showLegalMoves) {
                     boolean isLegal = false;
                     for (Move m : legalMoves) {
@@ -178,7 +166,6 @@ public class ChessBoardView extends View {
                         float cy = y + cellSize / 2f;
                         ChessPiece target = board.getPieceAt(r, c);
                         if (target != null) {
-                            // Draw ring for capture
                             dotPaint.setStyle(Paint.Style.STROKE);
                             dotPaint.setStrokeWidth(cellSize * 0.08f);
                             canvas.drawCircle(cx, cy, cellSize * 0.45f, dotPaint);
@@ -196,24 +183,26 @@ public class ChessBoardView extends View {
         float half = cellSize / 2f;
         for (int i = 0; i < 8; i++) {
             int di = flipped ? 7 - i : i;
-            // Rank numbers (left edge)
             String rank = String.valueOf(8 - i);
-            canvas.drawText(rank,
-                boardOffset / 2f,
-                boardOffset + di * cellSize + half + labelPaint.getTextSize() / 3f,
-                labelPaint);
-            // File letters (bottom edge)
+            canvas.drawText(rank, boardOffset / 2f,
+                boardOffset + di * cellSize + half + labelPaint.getTextSize() / 3f, labelPaint);
             String file = String.valueOf((char)('a' + i));
-            canvas.drawText(file,
-                boardOffset + di * cellSize + half,
-                boardOffset + 8 * cellSize + boardOffset * 0.75f,
-                labelPaint);
+            canvas.drawText(file, boardOffset + di * cellSize + half,
+                boardOffset + 8 * cellSize + boardOffset * 0.75f, labelPaint);
         }
     }
 
     private void drawPieces(Canvas canvas) {
         for (int r = 0; r < 8; r++) {
             for (int c = 0; c < 8; c++) {
+                // If animating, don't draw the piece at its SOURCE OR DESTINATION yet.
+                // The animation logic handles drawing the piece in transition.
+                if (animatingMove != null && 
+                    ((r == animatingMove.fromRow && c == animatingMove.fromCol) ||
+                     (r == animatingMove.toRow && c == animatingMove.toCol))) {
+                    continue;
+                }
+
                 ChessPiece p = board.getPieceAt(r, c);
                 if (p == null) continue;
 
@@ -223,11 +212,7 @@ public class ChessBoardView extends View {
                 float cy = boardOffset + drawR * cellSize + cellSize * 0.72f;
 
                 String sym = p.getUnicodeSymbol();
-
-                // Shadow (slightly offset)
                 canvas.drawText(sym, cx + cellSize * 0.025f, cy + cellSize * 0.025f, shadowPaint);
-
-                // Piece
                 piecePaint.setColor(p.getColor() == ChessPiece.Color.WHITE
                     ? CLR_WHITE_PIECE : CLR_BLACK_PIECE);
                 canvas.drawText(sym, cx, cy, piecePaint);
@@ -235,13 +220,38 @@ public class ChessBoardView extends View {
         }
     }
 
-    // ──────────────────────────────────────────────────────────────────
-    //  Touch
-    // ──────────────────────────────────────────────────────────────────
+    private void drawAnimatingPiece(Canvas canvas) {
+        if (animatingMove == null || board == null) return;
+
+        // The piece is already at toRow/toCol in the board model.
+        ChessPiece p = board.getPieceAt(animatingMove.toRow, animatingMove.toCol);
+        if (p == null) return;
+
+        // Visual start/end coordinates (considering flip)
+        int fr = flipped ? 7 - animatingMove.fromRow : animatingMove.fromRow;
+        int fc = flipped ? 7 - animatingMove.fromCol : animatingMove.fromCol;
+        int tr = flipped ? 7 - animatingMove.toRow   : animatingMove.toRow;
+        int tc = flipped ? 7 - animatingMove.toCol   : animatingMove.toCol;
+
+        float startX = boardOffset + fc * cellSize + cellSize / 2f;
+        float startY = boardOffset + fr * cellSize + cellSize * 0.72f;
+        float endX   = boardOffset + tc * cellSize + cellSize / 2f;
+        float endY   = boardOffset + tr * cellSize + cellSize * 0.72f;
+
+        float currX = startX + (endX - startX) * animProgress;
+        float currY = startY + (endY - startY) * animProgress;
+
+        String sym = p.getUnicodeSymbol();
+        canvas.drawText(sym, currX + cellSize * 0.025f, currY + cellSize * 0.025f, shadowPaint);
+        piecePaint.setColor(p.getColor() == ChessPiece.Color.WHITE
+                ? CLR_WHITE_PIECE : CLR_BLACK_PIECE);
+        canvas.drawText(sym, currX, currY, piecePaint);
+    }
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (event.getAction() != MotionEvent.ACTION_UP) return true;
-        if (board == null || engineThinking) return true;
+        if (board == null || engineThinking || animatingMove != null) return true;
 
         float x = event.getX() - boardOffset;
         float y = event.getY() - boardOffset;
@@ -260,7 +270,6 @@ public class ChessBoardView extends View {
 
     private void handleTap(int row, int col) {
         if (selectedRow < 0) {
-            // First tap: select piece
             ChessPiece pc = board.getPieceAt(row, col);
             if (pc == null) return;
             ChessPiece.Color turn = board.isWhiteToMove()
@@ -272,29 +281,24 @@ public class ChessBoardView extends View {
             legalMoves  = board.getLegalMoves(row, col);
             invalidate();
         } else {
-            // Second tap: attempt move
             Move chosen = null;
             for (Move m : legalMoves) {
                 if (m.toRow == row && m.toCol == col) { chosen = m; break; }
             }
 
             if (chosen != null) {
-                // Check for pawn promotion
                 ChessPiece pc = board.getPieceAt(chosen.fromRow, chosen.fromCol);
                 if (pc != null && pc.getType() == ChessPiece.Type.PAWN &&
                         (chosen.toRow == 0 || chosen.toRow == 7)) {
-                    if (moveListener != null) {
-                        moveListener.onPromotionRequired(chosen, pc.getColor());
-                    }
+                    if (moveListener != null) moveListener.onPromotionRequired(chosen, pc.getColor());
                 } else {
-                    lastMove = chosen;
+                    animateMove(chosen);
                     if (moveListener != null) moveListener.onMoveSelected(chosen);
                 }
                 selectedRow = selectedCol = -1;
                 legalMoves = new ArrayList<>();
                 invalidate();
             } else {
-                // Re-select if tapping own piece
                 ChessPiece pc = board.getPieceAt(row, col);
                 ChessPiece.Color turn = board.isWhiteToMove()
                     ? ChessPiece.Color.WHITE : ChessPiece.Color.BLACK;
@@ -311,14 +315,52 @@ public class ChessBoardView extends View {
         }
     }
 
-    // ──────────────────────────────────────────────────────────────────
-    //  Public API
-    // ──────────────────────────────────────────────────────────────────
+    private int lastMoveCount = 0;
+
     public void setBoard(ChessBoard board) {
         this.board = board;
+        if (board != null) {
+            lastMoveCount = board.getMoveCount();
+            // Clear last move if it's a new board state from undo/reset
+            if (lastMoveCount == 0) lastMove = null;
+        }
         selectedRow = selectedCol = -1;
         legalMoves  = new ArrayList<>();
         invalidate();
+    }
+
+    public void animateMove(final Move move) {
+        if (!animationsEnabled) {
+            lastMove = move;
+            invalidate();
+            return;
+        }
+
+        if (moveAnimator != null) moveAnimator.cancel();
+
+        animatingMove = move;
+        lastMove = move;
+        animProgress = 0f;
+
+        moveAnimator = ValueAnimator.ofFloat(0f, 1f);
+        moveAnimator.setDuration(300);
+        moveAnimator.setInterpolator(new DecelerateInterpolator());
+        moveAnimator.addUpdateListener(animation -> {
+            animProgress = (float) animation.getAnimatedValue();
+            invalidate();
+        });
+        moveAnimator.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                animatingMove = null;
+                invalidate();
+            }
+        });
+        moveAnimator.start();
+    }
+
+    public void setAnimationsEnabled(boolean enabled) {
+        this.animationsEnabled = enabled;
     }
 
     public void setEngineThinking(boolean thinking) {

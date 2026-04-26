@@ -41,6 +41,7 @@ public class GameViewModel extends AndroidViewModel {
     private final MutableLiveData<String>     whiteTimeLD      = new MutableLiveData<>("00:00");
     private final MutableLiveData<String>     blackTimeLD      = new MutableLiveData<>("00:00");
     private final MutableLiveData<String>     lastMoveLD       = new MutableLiveData<>("--");
+    private final MutableLiveData<Move>       lastMoveObjLD    = new MutableLiveData<>();
     private final MutableLiveData<String>     toastLD          = new MutableLiveData<>();
     private final MutableLiveData<String>     gameLogLD        = new MutableLiveData<>("");
 
@@ -48,24 +49,7 @@ public class GameViewModel extends AndroidViewModel {
     private final ExecutorService  executor = Executors.newSingleThreadExecutor();
     private final Handler          timerHandler = new Handler(Looper.getMainLooper());
     private final Runnable         timerRunnable = new Runnable() {
-        public void resign() {
-        if (gameState == null || gameState.isGameOver()) return;
-        
-        String winner = gameState.getBoard().isWhiteToMove() ? 
-            gameState.getPlayer2Name() : gameState.getPlayer1Name();
-        if (winner == null || winner.isEmpty()) {
-            winner = gameState.getBoard().isWhiteToMove() ? "Black" : "White";
-        }
-        
-        String msg = "Resignation. " + winner + " wins!";
-        gameState.setGameOver(true, msg);
-        
-        gameOverLD.setValue(true);
-        statusLD.setValue(msg);
-        addToLog("Game ended by resignation.");
-    }
-
-    @Override
+        @Override
         public void run() {
             updateTimers();
             timerHandler.postDelayed(this, 1000);
@@ -89,6 +73,11 @@ public class GameViewModel extends AndroidViewModel {
 
         if (state.getMode() == GameState.GameMode.PVB) {
             initEngine();
+            // Reset engine state for a new game session
+            executor.execute(() -> {
+                EngineBridge.getInstance().sendCommand("ucinewgame");
+                EngineBridge.getInstance().isEngineReady(); // This blocks until readyok
+            });
         }
         state.startTurnTimer();
         timerHandler.post(timerRunnable);
@@ -113,17 +102,26 @@ public class GameViewModel extends AndroidViewModel {
         if (gameState == null || gameState.isGameOver()) return;
 
         ChessBoard board = gameState.getBoard();
-        String timeStr = gameState.getWhiteTimeDisplay();
-        gameState.pauseTurnTimer();
-        board.makeMove(move);
         
-        String uci = move.toUCI();
-        lastMoveLD.setValue(uci);
-        addToLog("White: " + uci + " (" + timeStr + ")");
+        // Prevent human moving during bot's turn in PvB
+        if (gameState.getMode() == GameState.GameMode.PVB && !board.isWhiteToMove()) {
+            return;
+        }
 
-        boardLD.setValue(board);
-        updateTimers();
-        updateStatus();
+        synchronized (board) {
+            String timeStr = gameState.getWhiteTimeDisplay();
+            gameState.pauseTurnTimer();
+            board.makeMove(move);
+            
+            String uci = move.toUCI();
+            lastMoveLD.setValue(uci);
+            lastMoveObjLD.setValue(move);
+            addToLog("White: " + uci + " (" + timeStr + ")");
+
+            boardLD.setValue(board);
+            updateTimers();
+            updateStatus();
+        }
 
         if (checkGameOver()) return;
 
@@ -152,39 +150,62 @@ public class GameViewModel extends AndroidViewModel {
 
         executor.execute(() -> {
             try {
+                Log.d(TAG, "Requesting bot move for FEN: " + fen);
                 String uci = EngineBridge.getInstance().getBestMove(fen, depth, skill);
+                
                 if (uci == null || uci.isEmpty()) {
+                    Log.w(TAG, "Engine returned no move (null or empty)");
                     toastLD.postValue("Engine returned no move");
+                    statusLD.postValue("Engine Error");
                     engineThinkingLD.postValue(false);
                     return;
                 }
 
+                Log.d(TAG, "Engine returned UCI: " + uci);
                 Move move = parseBotMove(uci);
-                if (move == null) {
-                    toastLD.postValue("Could not parse move: " + uci);
-                    engineThinkingLD.postValue(false);
-                    return;
-                }
-
+                
                 String timeStr = gameState.getBlackTimeDisplay();
                 ChessBoard board = gameState.getBoard();
-                
+
+                if (move == null) {
+                    Log.w(TAG, "Engine suggested illegal/unparseable move: " + uci + ". Falling back to random legal move.");
+                    synchronized (board) {
+                        java.util.List<Move> allLegal = board.getAllLegalMoves();
+                        if (!allLegal.isEmpty()) {
+                            move = allLegal.get((int) (Math.random() * allLegal.size()));
+                            Log.i(TAG, "Fallback move selected: " + move.toUCI());
+                        } else {
+                            Log.e(TAG, "No legal moves available for fallback!");
+                            engineThinkingLD.postValue(false);
+                            return;
+                        }
+                    }
+                }
+
                 // Add artificial delay for the user to process the previous state
                 Thread.sleep(1500);
 
-                board.makeMove(move);
-                boardLD.postValue(board);
-                lastMoveLD.postValue(move.toUCI());
-                addToLogPost("Black: " + move.toUCI() + " (" + timeStr + ")");
-                updateTimersPost();
-                statusLD.postValue(board.getGameStatus());
-                currentPlayerLD.postValue(gameState.getCurrentPlayerName());
+                synchronized (board) {
+                    if (gameState.isGameOver() || board.isWhiteToMove()) {
+                        Log.w(TAG, "Bot move aborted: Board state changed during delay");
+                        return;
+                    }
 
-                if (board.isGameOver()) {
-                    gameState.setGameOver(true);
-                    gameOverLD.postValue(true);
-                } else {
-                    gameState.startTurnTimer();
+                    board.makeMove(move);
+                    boardLD.postValue(board);
+                    lastMoveLD.postValue(move.toUCI());
+                    lastMoveObjLD.postValue(move);
+                    addToLogPost("Black: " + move.toUCI() + " (" + timeStr + ")");
+                    updateTimersPost();
+                    statusLD.postValue(board.getGameStatus());
+                    currentPlayerLD.postValue(gameState.getCurrentPlayerName());
+
+                    if (board.isGameOver()) {
+                        gameState.setGameOver(true);
+                        gameOverLD.postValue(true);
+                    } else {
+                        gameState.startTurnTimer();
+                    }
                 }
             } catch (Exception e) {
                 Log.e(TAG, "Bot move error", e);
@@ -219,17 +240,26 @@ public class GameViewModel extends AndroidViewModel {
             }
 
             // Detect castling (king moves 2 squares)
-            ChessPiece pc = gameState.getBoard().getPieceAt(fromRow, fromCol);
-            if (pc != null && pc.getType() == ChessPiece.Type.KING
-                    && Math.abs(fromCol - toCol) == 2) {
+            ChessBoard board = gameState.getBoard();
+            ChessPiece pc = board.getPieceAt(fromRow, fromCol);
+            if (pc == null) {
+                Log.e(TAG, "Illegal bot move: No piece at " + uci.substring(0, 2));
+                return null;
+            }
+
+            if (pc.getType() == ChessPiece.Type.KING && Math.abs(fromCol - toCol) == 2) {
                 move.wasCastling = true;
             }
 
             // Detect en passant (pawn moves diagonally to empty square)
-            if (pc != null && pc.getType() == ChessPiece.Type.PAWN
-                    && fromCol != toCol
-                    && gameState.getBoard().getPieceAt(toRow, toCol) == null) {
+            if (pc.getType() == ChessPiece.Type.PAWN && fromCol != toCol && board.getPieceAt(toRow, toCol) == null) {
                 move.wasEnPassant = true;
+            }
+            
+            // Validate move legality
+            if (!board.isLegal(move)) {
+                Log.e(TAG, "Illegal bot move suggested: " + uci);
+                return null;
             }
             return move;
         } catch (Exception e) {
@@ -246,18 +276,20 @@ public class GameViewModel extends AndroidViewModel {
 
         ChessBoard board = gameState.getBoard();
 
-        // In PvB undo both bot and human moves to keep human as white
-        if (gameState.getMode() == GameState.GameMode.PVB) {
-            if (board.getMoveCount() >= 2) { board.undoMove(); board.undoMove(); }
-            else if (board.getMoveCount() == 1) { board.undoMove(); }
-        } else {
-            board.undoMove();
-        }
+        synchronized (board) {
+            // In PvB undo both bot and human moves to keep human as white
+            if (gameState.getMode() == GameState.GameMode.PVB) {
+                if (board.getMoveCount() >= 2) { board.undoMove(); board.undoMove(); }
+                else if (board.getMoveCount() == 1) { board.undoMove(); }
+            } else {
+                board.undoMove();
+            }
 
-        gameState.setGameOver(false);
-        boardLD.setValue(board);
-        gameOverLD.setValue(false);
-        updateStatus();
+            gameState.setGameOver(false);
+            boardLD.setValue(board);
+            gameOverLD.setValue(false);
+            updateStatus();
+        }
     }
 
     private boolean isPaused = false;
@@ -309,6 +341,7 @@ public class GameViewModel extends AndroidViewModel {
     public LiveData<String>     getWhiteTimeLD()      { return whiteTimeLD; }
     public LiveData<String>     getBlackTimeLD()      { return blackTimeLD; }
     public LiveData<String>     getLastMoveLD()       { return lastMoveLD; }
+    public LiveData<Move>       getLastMoveObjLD()    { return lastMoveObjLD; }
     public LiveData<String>     getToastLD()          { return toastLD; }
     public LiveData<String>     getGameLogLD()        { return gameLogLD; }
     public GameState            getGameState()        { return gameState; }

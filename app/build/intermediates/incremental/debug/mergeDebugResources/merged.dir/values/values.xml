@@ -2031,7 +2031,7 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with <ns2:g example="Mail" id="application_name">%s</ns2:g></string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
-    <string name="about_desc">ChessMaster is a premium chess engine experience powered by Stockfish. Designed for players who demand precision and style.</string>
+    <string name="about_desc">ChessMaster is a premium chess engine experience. Designed for players who demand precision and style.</string>
     <string name="about_version">Version 2.0.0 (Mastery Edition)</string>
     <string name="action_hint">HINT</string>
     <string name="action_menu">MENU</string>
@@ -2137,7 +2137,7 @@
     <string name="msg_checkmate">CHECKMATE</string>
     <string name="msg_draw">DRAW</string>
     <string name="msg_stalemate">STALEMATE</string>
-    <string name="msg_thinking">Stockfish analyzing…</string>
+    <string name="msg_thinking">Bot is analyzing…</string>
     <string description="Content description for new notification (no number count) [CHAR_LIMIT=NONE]" name="mtrl_badge_numberless_content_description">New notification</string>
     <string name="mtrl_checkbox_button_icon_path_checked" translatable="false">M14,18.2 11.4,15.6 10,17 14,21 22,13 20.6,11.6z</string>
     <string name="mtrl_checkbox_button_icon_path_group_name" translatable="false">icon</string>

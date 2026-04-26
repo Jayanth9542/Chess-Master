@@ -322,7 +322,7 @@ public class ChessBoard {
     // ──────────────────────────────────────────────────────────────────
     //  Legality check (make/unmake)
     // ──────────────────────────────────────────────────────────────────
-    private boolean isLegal(Move move) {
+    public boolean isLegal(Move move) {
         ChessPiece pc = board[move.fromRow][move.fromCol];
         if (pc == null) return false;
 
@@ -381,6 +381,7 @@ public class ChessBoard {
     // ──────────────────────────────────────────────────────────────────
     public void makeMove(Move move) {
         ChessPiece pc = board[move.fromRow][move.fromCol];
+        if (pc == null) return;
 
         // Save undo state into the move itself
         move.capturedPiece      = board[move.toRow][move.toCol];
@@ -417,6 +418,7 @@ public class ChessBoard {
         epRow = epCol = -1;
         if (pc.getType() == ChessPiece.Type.PAWN
                 && Math.abs(move.toRow - move.fromRow) == 2) {
+            // The square behind the pawn
             epRow = (move.fromRow + move.toRow) / 2;
             epCol = move.fromCol;
         }
@@ -503,13 +505,33 @@ public class ChessBoard {
 
     public boolean isCheckmate()  { return isInCheck() && getAllLegalMoves().isEmpty(); }
     public boolean isStalemate()  { return !isInCheck() && getAllLegalMoves().isEmpty(); }
-    public boolean isGameOver()   { return isCheckmate() || isStalemate(); }
+    public boolean isGameOver()   {
+        return isCheckmate() || isStalemate() || halfMoveClock >= 100 || isInsufficientMaterial();
+    }
+
+    public boolean isInsufficientMaterial() {
+        List<ChessPiece> pieces = new ArrayList<>();
+        for (int r = 0; r < 8; r++) {
+            for (int c = 0; c < 8; c++) {
+                if (board[r][c] != null) pieces.add(board[r][c]);
+            }
+        }
+        if (pieces.size() == 2) return true; // King vs King
+        if (pieces.size() == 3) {
+            for (ChessPiece p : pieces) {
+                if (p.getType() == ChessPiece.Type.KNIGHT || p.getType() == ChessPiece.Type.BISHOP)
+                    return true; // King + Minor vs King
+            }
+        }
+        return false;
+    }
 
     public String getGameStatus() {
         if (isCheckmate()) {
             return (whiteToMove ? "Black" : "White") + " wins by checkmate!";
         }
         if (isStalemate()) return "Draw by stalemate!";
+        if (isInsufficientMaterial()) return "Draw by insufficient material!";
         if (halfMoveClock >= 100) return "Draw by 50-move rule!";
         if (isInCheck())   return (whiteToMove ? "White" : "Black") + " is in check!";
         return (whiteToMove ? "White" : "Black") + "'s turn";
@@ -542,10 +564,11 @@ public class ChessBoard {
         if (castlingRights[3]) cr.append('q');
         fen.append(cr.length() == 0 ? "-" : cr.toString());
 
+        fen.append(" ");
         if (epRow >= 0) {
-            fen.append(' ').append((char)('a' + epCol)).append(8 - epRow);
+            fen.append((char)('a' + epCol)).append(8 - epRow);
         } else {
-            fen.append(" -");
+            fen.append("-");
         }
         fen.append(' ').append(halfMoveClock).append(' ').append(fullMoveNumber);
         return fen.toString();

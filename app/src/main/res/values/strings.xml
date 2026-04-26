@@ -45,7 +45,7 @@
     <string name="status_white">White to Move</string>
     <string name="status_black">Black to Move</string>
     <string name="status_check">CHECK!</string>
-    <string name="msg_thinking">Stockfish analyzing…</string>
+    <string name="msg_thinking">Bot is analyzing…</string>
     <string name="msg_checkmate">CHECKMATE</string>
     <string name="msg_stalemate">STALEMATE</string>
     <string name="msg_draw">DRAW</string>
@@ -64,7 +64,7 @@
 
     <!-- About -->
     <string name="about_version">Version 2.0.0 (Mastery Edition)</string>
-    <string name="about_desc">ChessMaster is a premium chess engine experience powered by Stockfish. Designed for players who demand precision and style.</string>
+    <string name="about_desc">ChessMaster is a premium chess engine experience. Designed for players who demand precision and style.</string>
     <!-- Game Over Dialog -->
     <string name="game_over_title">BATTLE CONCLUDED</string>
     <string name="btn_play_again">REMATCH</string>

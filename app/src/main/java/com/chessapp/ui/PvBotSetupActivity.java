@@ -53,7 +53,7 @@ public class PvBotSetupActivity extends AppCompatActivity {
             Intent intent = new Intent(this, GameActivity.class);
             intent.putExtra("mode", "PVB");
             intent.putExtra("player1", name);
-            intent.putExtra("player2", "Stockfish AI");
+            intent.putExtra("player2", "Bot AI");
             intent.putExtra("difficulty", difficultyKey);
             startActivity(intent);
             finish();

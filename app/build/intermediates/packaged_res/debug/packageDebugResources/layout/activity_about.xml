@@ -71,7 +71,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="ChessMaster is a modern chess application powered by the Stockfish engine.\n\nBuilt with passion for chess enthusiasts."
+                android:text="ChessMaster is a modern chess application powered by a professional engine.\n\nBuilt with passion for chess enthusiasts."
                 android:textColor="?attr/colorOnSurface"
                 android:textSize="16sp" />
 

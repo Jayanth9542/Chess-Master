@@ -14,10 +14,8 @@ file(GLOB_RECURSE STOCKFISH_SOURCES
 )
 
 if(NOT STOCKFISH_SOURCES)
-    message(WARNING
-        "⚠  No Stockfish .cpp files found in stockfish/. "
-        "The JNI bridge will compile but initEngine() will fail at runtime. "
-        "See integration steps in the README.")
+    message(STATUS "ℹ  Using internal engine stub (no Stockfish sources found).")
+    add_definitions(-DUSE_INTERNAL_ENGINE)
 endif()
 
 # ─────────────────────────────────────────────────────────────────────────────

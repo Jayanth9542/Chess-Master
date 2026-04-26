@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:ns1="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools">
     <color name="board_dark">#7D6B58</color>
     <color name="board_highlight">#EFA4B2</color>
     <color name="board_last_move">#E5CDCE</color>
@@ -57,7 +57,7 @@
     <dimen name="pulse_min_scale">0.97</dimen>
     <dimen name="timer_badge_height">28dp</dimen>
     <dimen name="timer_badge_width">70dp</dimen>
-    <string name="about_desc">ChessMaster is a premium chess engine experience powered by Stockfish. Designed for players who demand precision and style.</string>
+    <string name="about_desc">ChessMaster is a premium chess engine experience. Designed for players who demand precision and style.</string>
     <string name="about_version">Version 2.0.0 (Mastery Edition)</string>
     <string name="action_hint">HINT</string>
     <string name="action_menu">MENU</string>
@@ -96,7 +96,7 @@
     <string name="msg_checkmate">CHECKMATE</string>
     <string name="msg_draw">DRAW</string>
     <string name="msg_stalemate">STALEMATE</string>
-    <string name="msg_thinking">Stockfish analyzing…</string>
+    <string name="msg_thinking">Bot is analyzing…</string>
     <string name="setting_haptics">Haptic Feedback</string>
     <string name="setting_sounds">Sound Effects</string>
     <string name="setting_theme">Board Theme</string>
@@ -189,8 +189,8 @@
     <style name="Widget.ChessApp.ListPopupWindow" parent="Widget.Material3.PopupMenu">
         <item name="android:popupBackground">@drawable/bg_dropdown_menu</item>
         
-        <item name="android:windowBlurBehindEnabled" ns1:targetApi="s">true</item>
-        <item name="android:windowBlurBehindRadius" ns1:targetApi="s">20dp</item>
+        <item name="android:windowBlurBehindEnabled" tools:targetApi="s">true</item>
+        <item name="android:windowBlurBehindRadius" tools:targetApi="s">20dp</item>
     </style>
     <declare-styleable name="ChessBoardView">
         

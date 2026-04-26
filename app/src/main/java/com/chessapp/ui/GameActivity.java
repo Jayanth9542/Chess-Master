@@ -14,10 +14,13 @@ import com.chessapp.views.ChessBoardView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
 
+import com.chessapp.repository.GameRepository;
+
 public class GameActivity extends AppCompatActivity {
 
     private ActivityGameBinding binding;
     private GameViewModel viewModel;
+    private GameRepository repository;
     private boolean isGameOver = false;
 
     @Override
@@ -27,6 +30,7 @@ public class GameActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         viewModel = new ViewModelProvider(this).get(GameViewModel.class);
+        repository = new GameRepository(getApplication());
         
         setupBoard();
         setupControls();
@@ -38,6 +42,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void setupBoard() {
+        binding.chessBoardView.setAnimationsEnabled(repository.isAnimationsEnabled());
         binding.chessBoardView.setOnMoveSelectedListener(new ChessBoardView.OnMoveSelectedListener() {
             @Override
             public void onMoveSelected(Move move) {
@@ -99,7 +104,7 @@ public class GameActivity extends AppCompatActivity {
         });
 
         binding.btnHint.setOnClickListener(v -> {
-            Snackbar.make(binding.getRoot(), "Stockfish suggests analyzing the center.", Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(binding.getRoot(), "The Bot suggests analyzing the center.", Snackbar.LENGTH_SHORT).show();
         });
 
         binding.btnOptions.setOnClickListener(v -> showGameOptionsDialog());
@@ -184,9 +189,21 @@ public class GameActivity extends AppCompatActivity {
             binding.tvLastMove.setText(getString(R.string.label_last_move, move));
         });
 
+        viewModel.getLastMoveObjLD().observe(this, move -> {
+            if (move != null) {
+                binding.chessBoardView.animateMove(move);
+            }
+        });
+
         viewModel.getGameLogLD().observe(this, log -> {
             binding.tvGameLog.setText(log);
             binding.scrollLog.post(() -> binding.scrollLog.fullScroll(View.FOCUS_DOWN));
+        });
+
+        viewModel.getToastLD().observe(this, msg -> {
+            if (msg != null && !msg.isEmpty()) {
+                android.widget.Toast.makeText(this, msg, android.widget.Toast.LENGTH_LONG).show();
+            }
         });
     }
 

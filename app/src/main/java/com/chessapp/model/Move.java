@@ -65,12 +65,15 @@ public class Move {
         if (!(o instanceof Move)) return false;
         Move m = (Move) o;
         return fromRow == m.fromRow && fromCol == m.fromCol
-            && toRow   == m.toRow   && toCol   == m.toCol;
+            && toRow   == m.toRow   && toCol   == m.toCol
+            && promotion == m.promotion;
     }
 
     @Override
     public int hashCode() {
-        return fromRow * 1000 + fromCol * 100 + toRow * 10 + toCol;
+        int result = fromRow * 1000 + fromCol * 100 + toRow * 10 + toCol;
+        if (promotion != null) result += (promotion.ordinal() + 1) * 10000;
+        return result;
     }
 
     @Override

@@ -1,0 +1,3 @@
+ninja: Entering directory `C:\Users\jayan\StudioProjects\Chess-Master\app\.cxx\Debug\1473n2z1\x86_64'
+[1/2] Building CXX object CMakeFiles/chess_engine.dir/engine_wrapper.cpp.o
+[2/2] Linking CXX shared library C:\Users\jayan\StudioProjects\Chess-Master\app\build\intermediates\cxx\Debug\1473n2z1\obj\x86_64\libchess_engine.so

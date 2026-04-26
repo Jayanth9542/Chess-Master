@@ -1,0 +1,4 @@
+-- ℹ  Using internal engine stub (no Stockfish sources found).
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/jayan/StudioProjects/Chess-Master/app/.cxx/Debug/1473n2z1/x86_64
