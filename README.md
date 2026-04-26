@@ -23,7 +23,6 @@
 ## 📋 Table of Contents
 
 - [Features](#-features)
-- [Screenshots](#-screenshots)
 - [Tech Stack](#-tech-stack)
 - [Architecture](#-architecture)
 - [Project Structure](#-project-structure)
@@ -64,17 +63,6 @@
 - 📱 **Portrait locked** — optimised for phone portrait layout
 - 🔄 **Rotation-safe** — `ViewModel` survives configuration changes
 
----
-
-## 📸 Screenshots
-
-| Main Menu | Game Mode | PvP Setup | Game Screen | Settings |
-|:---------:|:---------:|:---------:|:-----------:|:--------:|
-| *(add screenshot)* | *(add screenshot)* | *(add screenshot)* | *(add screenshot)* | *(add screenshot)* |
-
-> To add screenshots: take them on a device or emulator, place them in `docs/screenshots/`, and update the table above.
-
----
 
 ## 🛠 Tech Stack
 
