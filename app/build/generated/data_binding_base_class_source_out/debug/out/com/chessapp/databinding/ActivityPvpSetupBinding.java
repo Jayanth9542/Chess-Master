@@ -12,6 +12,7 @@ import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.chessapp.R;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import java.lang.NullPointerException;
@@ -27,6 +28,15 @@ public final class ActivityPvpSetupBinding implements ViewBinding {
 
   @NonNull
   public final MaterialButton btnStartGame;
+
+  @NonNull
+  public final MaterialCardView cardBlackFirst;
+
+  @NonNull
+  public final MaterialCardView cardRandom;
+
+  @NonNull
+  public final MaterialCardView cardWhiteFirst;
 
   @NonNull
   public final TextInputEditText etPlayer1;
@@ -45,12 +55,16 @@ public final class ActivityPvpSetupBinding implements ViewBinding {
 
   private ActivityPvpSetupBinding(@NonNull ConstraintLayout rootView,
       @NonNull MaterialButton btnBack, @NonNull MaterialButton btnStartGame,
-      @NonNull TextInputEditText etPlayer1, @NonNull TextInputEditText etPlayer2,
-      @NonNull TextInputLayout layoutPlayer1, @NonNull TextInputLayout layoutPlayer2,
-      @NonNull TextView title) {
+      @NonNull MaterialCardView cardBlackFirst, @NonNull MaterialCardView cardRandom,
+      @NonNull MaterialCardView cardWhiteFirst, @NonNull TextInputEditText etPlayer1,
+      @NonNull TextInputEditText etPlayer2, @NonNull TextInputLayout layoutPlayer1,
+      @NonNull TextInputLayout layoutPlayer2, @NonNull TextView title) {
     this.rootView = rootView;
     this.btnBack = btnBack;
     this.btnStartGame = btnStartGame;
+    this.cardBlackFirst = cardBlackFirst;
+    this.cardRandom = cardRandom;
+    this.cardWhiteFirst = cardWhiteFirst;
     this.etPlayer1 = etPlayer1;
     this.etPlayer2 = etPlayer2;
     this.layoutPlayer1 = layoutPlayer1;
@@ -97,6 +111,24 @@ public final class ActivityPvpSetupBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.card_black_first;
+      MaterialCardView cardBlackFirst = ViewBindings.findChildViewById(rootView, id);
+      if (cardBlackFirst == null) {
+        break missingId;
+      }
+
+      id = R.id.card_random;
+      MaterialCardView cardRandom = ViewBindings.findChildViewById(rootView, id);
+      if (cardRandom == null) {
+        break missingId;
+      }
+
+      id = R.id.card_white_first;
+      MaterialCardView cardWhiteFirst = ViewBindings.findChildViewById(rootView, id);
+      if (cardWhiteFirst == null) {
+        break missingId;
+      }
+
       id = R.id.etPlayer1;
       TextInputEditText etPlayer1 = ViewBindings.findChildViewById(rootView, id);
       if (etPlayer1 == null) {
@@ -128,7 +160,8 @@ public final class ActivityPvpSetupBinding implements ViewBinding {
       }
 
       return new ActivityPvpSetupBinding((ConstraintLayout) rootView, btnBack, btnStartGame,
-          etPlayer1, etPlayer2, layoutPlayer1, layoutPlayer2, title);
+          cardBlackFirst, cardRandom, cardWhiteFirst, etPlayer1, etPlayer2, layoutPlayer1,
+          layoutPlayer2, title);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

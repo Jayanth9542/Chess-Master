@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.chessapp.R;
 import com.chessapp.adapter.GameHistoryAdapter;
 import com.chessapp.databinding.ActivityGameHistoryBinding;
 import com.chessapp.model.PlayerProfile;
@@ -47,11 +48,11 @@ public class GameHistoryActivity extends AppCompatActivity {
         binding.chipGroupFilter.setOnCheckedStateChangeListener((group, checkedIds) -> {
             if (checkedIds.isEmpty()) return;
             int checkedId = checkedIds.get(0);
-            if (checkedId == binding.chipFilterAll.getId()) {
+            if (checkedId == R.id.chip_filter_all) {
                 viewModel.setFilter("ALL");
-            } else if (checkedId == binding.chipFilterPvb.getId()) {
+            } else if (checkedId == R.id.chip_filter_pvb) {
                 viewModel.setFilter("PVB");
-            } else if (checkedId == binding.chipFilterPvp.getId()) {
+            } else if (checkedId == R.id.chip_filter_pvp) {
                 viewModel.setFilter("PVP");
             }
         });
@@ -73,13 +74,13 @@ public class GameHistoryActivity extends AppCompatActivity {
     private void updateProfileHeader(PlayerProfile profile) {
         binding.tvAvatar.setText(profile.getAvatarEmoji());
         binding.tvName.setText(profile.getDisplayName());
-        binding.chipWins.setText(String.format(Locale.getDefault(), "%d Wins", profile.getTotalWins()));
-        binding.chipLosses.setText(String.format(Locale.getDefault(), "%d Losses", profile.getTotalLosses()));
-        binding.chipDraws.setText(String.format(Locale.getDefault(), "%d Draws", profile.getTotalDraws()));
+        binding.chipWins.setText(getString(R.string.label_wins, profile.getTotalWins()));
+        binding.chipLosses.setText(getString(R.string.label_losses, profile.getTotalLosses()));
+        binding.chipDraws.setText(getString(R.string.label_draws, profile.getTotalDraws()));
         
         int total = profile.getTotalGames();
         double winRate = total == 0 ? 0 : (profile.getTotalWins() * 100.0 / total);
-        binding.tvWinRate.setText(String.format(Locale.getDefault(), "%.1f%% Win Rate", winRate));
-        binding.tvTotalGames.setText(String.format(Locale.getDefault(), "%d Games Played", total));
+        binding.tvWinRate.setText(getString(R.string.label_win_rate, winRate));
+        binding.tvTotalGames.setText(getString(R.string.label_total_games, total));
     }
 }

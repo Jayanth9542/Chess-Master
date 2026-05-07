@@ -12,6 +12,7 @@ import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.chessapp.R;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -30,6 +31,12 @@ public final class ActivityPvbotSetupBinding implements ViewBinding {
   public final MaterialButton btnStartGame;
 
   @NonNull
+  public final MaterialCardView cardPlayBlack;
+
+  @NonNull
+  public final MaterialCardView cardPlayWhite;
+
+  @NonNull
   public final TextInputEditText etPlayerName;
 
   @NonNull
@@ -46,12 +53,15 @@ public final class ActivityPvbotSetupBinding implements ViewBinding {
 
   private ActivityPvbotSetupBinding(@NonNull ConstraintLayout rootView,
       @NonNull MaterialButton btnBack, @NonNull MaterialButton btnStartGame,
+      @NonNull MaterialCardView cardPlayBlack, @NonNull MaterialCardView cardPlayWhite,
       @NonNull TextInputEditText etPlayerName, @NonNull TextInputLayout layoutDifficulty,
       @NonNull TextInputLayout layoutPlayerName,
       @NonNull MaterialAutoCompleteTextView spinnerDifficulty, @NonNull TextView title) {
     this.rootView = rootView;
     this.btnBack = btnBack;
     this.btnStartGame = btnStartGame;
+    this.cardPlayBlack = cardPlayBlack;
+    this.cardPlayWhite = cardPlayWhite;
     this.etPlayerName = etPlayerName;
     this.layoutDifficulty = layoutDifficulty;
     this.layoutPlayerName = layoutPlayerName;
@@ -98,6 +108,18 @@ public final class ActivityPvbotSetupBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.card_play_black;
+      MaterialCardView cardPlayBlack = ViewBindings.findChildViewById(rootView, id);
+      if (cardPlayBlack == null) {
+        break missingId;
+      }
+
+      id = R.id.card_play_white;
+      MaterialCardView cardPlayWhite = ViewBindings.findChildViewById(rootView, id);
+      if (cardPlayWhite == null) {
+        break missingId;
+      }
+
       id = R.id.etPlayerName;
       TextInputEditText etPlayerName = ViewBindings.findChildViewById(rootView, id);
       if (etPlayerName == null) {
@@ -129,7 +151,8 @@ public final class ActivityPvbotSetupBinding implements ViewBinding {
       }
 
       return new ActivityPvbotSetupBinding((ConstraintLayout) rootView, btnBack, btnStartGame,
-          etPlayerName, layoutDifficulty, layoutPlayerName, spinnerDifficulty, title);
+          cardPlayBlack, cardPlayWhite, etPlayerName, layoutDifficulty, layoutPlayerName,
+          spinnerDifficulty, title);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

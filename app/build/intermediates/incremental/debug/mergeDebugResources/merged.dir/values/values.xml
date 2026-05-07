@@ -673,6 +673,9 @@
     <color name="colorTextPrimaryOnSurface">#000000</color>
     <color name="colorTextSecondaryOnBackground">#F1DAE3</color>
     <color name="colorTextSecondaryOnSurface">#7D6B58</color>
+    <color name="color_draw">#757575</color>
+    <color name="color_loss">#D32F2F</color>
+    <color name="color_win">#388E3C</color>
     <color name="design_bottom_navigation_shadow_color">#14000000</color>
     <color name="design_dark_default_color_background">#121212</color>
     <color name="design_dark_default_color_error">#CF6679</color>
@@ -2037,6 +2040,7 @@
     <string name="action_menu">MENU</string>
     <string name="action_resign">RESIGN</string>
     <string name="action_settings">Settings</string>
+    <string name="action_swap">⇅ Swap</string>
     <string name="action_undo">UNDO</string>
     <string name="androidx_startup" translatable="false">androidx.startup</string>
     <string name="app_name">ChessMaster</string>
@@ -2049,8 +2053,14 @@
     <string description="The content description of bottom sheet drag handles [CHAR LIMIT=NONE]" name="bottomsheet_drag_handle_content_description">Drag handle</string>
     <string name="brand_name">CHESS MASTER</string>
     <string name="brand_tagline">Grandmaster Intelligence</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_create">Create</string>
+    <string name="btn_delete">Delete</string>
     <string name="btn_main_menu">MAIN MENU</string>
+    <string name="btn_manage_profiles">Manage Profiles</string>
+    <string name="btn_new_profile">＋ New Profile</string>
     <string name="btn_play_again">REMATCH</string>
+    <string name="btn_save">Save</string>
     <string name="btn_start">INITIATE GAME</string>
     <string name="call_notification_answer_action">Answer</string>
     <string name="call_notification_answer_video_action">Video</string>
@@ -2065,10 +2075,14 @@
     <string name="clear_text_end_icon_content_description">Clear text</string>
     <string name="default_log_entry">1. White starts...</string>
     <string name="desc_beginner">Focuses on basic moves. Great for learning.</string>
+    <string name="desc_bot_moves_first">Bot moves first</string>
     <string name="desc_expert">Deep strategic thinking. Few mistakes.</string>
     <string name="desc_grandmaster">Near-perfect play. Professional level.</string>
     <string name="desc_intermediate">Understands simple tactics and positioning.</string>
     <string name="desc_magnus">Maximum power. The ultimate challenge.</string>
+    <string name="desc_you_move_first">You move first</string>
+    <string name="dialog_delete_profile">Delete Profile</string>
+    <string name="dialog_new_profile">New Profile</string>
     <string name="diff_beginner">Beginner</string>
     <string name="diff_expert">Expert</string>
     <string name="diff_grandmaster">Grandmaster</string>
@@ -2078,19 +2092,36 @@
     Error: invalid
   </string>
     <string name="error_icon_content_description">Error</string>
+    <string name="error_name_exists">Name already exists</string>
+    <string name="error_name_required">Name required</string>
     <string name="exposed_dropdown_menu_content_description">Show dropdown menu</string>
     <string name="fab_transformation_scrim_behavior" translatable="false">com.google.android.material.transformation.FabTransformationScrimBehavior</string>
     <string name="fab_transformation_sheet_behavior" translatable="false">com.google.android.material.transformation.FabTransformationSheetBehavior</string>
+    <string name="filter_all">All</string>
+    <string name="filter_pvb">vs Bot</string>
+    <string name="filter_pvp">vs Player</string>
     <string name="game_over_title">BATTLE CONCLUDED</string>
     <string name="hide_bottom_view_on_scroll_behavior" translatable="false">com.google.android.material.behavior.HideBottomViewOnScrollBehavior</string>
+    <string name="history_empty">No games played yet.</string>
     <string description="Content description for an icon that appears in the title area of a dialog" name="icon_content_description">Dialog Icon</string>
     <string name="item_view_role_description">Tab</string>
+    <string name="label_choose_avatar">Choose Avatar</string>
+    <string name="label_colour_assignment">Colour Assignment</string>
     <string name="label_difficulty">AI Proficiency</string>
+    <string name="label_display_name">Display Name</string>
+    <string name="label_draws">%1$d Draws</string>
+    <string name="label_game_details">Played as %1$s %2$s · %3$d moves</string>
     <string name="label_game_log">GAME LOG</string>
     <string name="label_last_move">Last Move: %1$s</string>
+    <string name="label_losses">%1$d Losses</string>
+    <string name="label_play_as">Play as</string>
     <string name="label_player_1">White Player</string>
     <string name="label_player_2">Black Player</string>
     <string name="label_player_name">Your Name</string>
+    <string name="label_total_games">%1$d Games Played</string>
+    <string name="label_vs_opponent">vs %1$s</string>
+    <string name="label_win_rate">%1$.1f%% Win Rate</string>
+    <string name="label_wins">%1$d Wins</string>
     <string name="m3_exceed_max_badge_text_suffix" translatable="false"><ns2:g example="Some te" id="part of a long text">%1$s</ns2:g><ns2:g example="…" id="suffix">%2$s</ns2:g></string>
     <string name="m3_ref_typeface_brand_medium" translatable="false">sans-serif-medium</string>
     <string name="m3_ref_typeface_brand_regular" translatable="false">sans-serif</string>
@@ -2131,11 +2162,19 @@
     <string name="material_timepicker_text_input_mode_description">Switch to text input mode for the time input.</string>
     <string name="menu_about">ABOUT</string>
     <string name="menu_exit">EXIT</string>
+    <string name="menu_history">📜 HISTORY</string>
     <string name="menu_play_bot">PLAY COMPUTER</string>
     <string name="menu_play_pvp">PASS &amp; PLAY</string>
     <string name="menu_settings">SETTINGS</string>
+    <string name="mode_pvb">Player vs Bot</string>
+    <string name="mode_pvp">Player vs Player</string>
     <string name="msg_checkmate">CHECKMATE</string>
+    <string name="msg_delete_confirm">Are you sure you want to delete %1$s? All game history will be lost.</string>
     <string name="msg_draw">DRAW</string>
+    <string name="msg_min_profile">You must have at least one profile.</string>
+    <string name="msg_profile_created">Profile created</string>
+    <string name="msg_profile_deleted">Profile deleted</string>
+    <string name="msg_profile_updated">Profile updated</string>
     <string name="msg_stalemate">STALEMATE</string>
     <string name="msg_thinking">Bot is analyzing…</string>
     <string description="Content description for new notification (no number count) [CHAR_LIMIT=NONE]" name="mtrl_badge_numberless_content_description">New notification</string>
@@ -2206,11 +2245,17 @@
     <string name="mtrl_switch_track_path" translatable="false">M0,16 A16,16 0 0,1 16,0 H36 A16,16 0 0,1 36,32 H16 A16,16 0 0,1 0,16</string>
     <string description="Button text to indicate that the widget will ignore the user&apos;s selection [CHAR_LIMIT=16]" name="mtrl_timepicker_cancel">Cancel</string>
     <string description="Button text to indicate that the widget will save the user&apos;s selection [CHAR_LIMIT=16]" name="mtrl_timepicker_confirm">OK</string>
+    <string name="option_black">⬛ Black</string>
+    <string name="option_black_starts">⬛ Black Starts</string>
+    <string name="option_random">🎲 Random</string>
+    <string name="option_white">⬜ White</string>
+    <string name="option_white_starts">⬜ White Starts</string>
     <string name="password_toggle_content_description">Show password</string>
     <string name="path_password_eye" translatable="false">M12,4.5C7,4.5 2.73,7.61 1,12c1.73,4.39 6,7.5 11,7.5s9.27,-3.11 11,-7.5c-1.73,-4.39 -6,-7.5 -11,-7.5zM12,17c-2.76,0 -5,-2.24 -5,-5s2.24,-5 5,-5 5,2.24 5,5 -2.24,5 -5,5zM12,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3 3,-1.34 3,-3 -1.34,-3 -3,-3z</string>
     <string name="path_password_eye_mask_strike_through" translatable="false">M2,4.27 L19.73,22 L22.27,19.46 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_eye_mask_visible" translatable="false">M2,4.27 L2,4.27 L4.54,1.73 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_strike_through" translatable="false">M3.27,4.27 L19.74,20.74</string>
+    <string name="profile_select_title">Who\'s Playing?</string>
     <string name="search_menu_title">Search</string>
     <string name="searchbar_scrolling_view_behavior" translatable="false">
     com.google.android.material.search.SearchBar$ScrollingViewBehavior

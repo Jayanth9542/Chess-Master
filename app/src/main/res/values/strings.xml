@@ -25,6 +25,17 @@
     <string name="label_difficulty">AI Proficiency</string>
     <string name="btn_start">INITIATE GAME</string>
 
+    <!-- Colour Selection -->
+    <string name="label_colour_assignment">Colour Assignment</string>
+    <string name="label_play_as">Play as</string>
+    <string name="option_white_starts">⬜ White Starts</string>
+    <string name="option_random">🎲 Random</string>
+    <string name="option_black_starts">⬛ Black Starts</string>
+    <string name="option_white">⬜ White</string>
+    <string name="option_black">⬛ Black</string>
+    <string name="desc_you_move_first">You move first</string>
+    <string name="desc_bot_moves_first">Bot moves first</string>
+
     <!-- Difficulty Levels (6-Tier) -->
     <string name="diff_beginner">Beginner</string>
     <string name="diff_intermediate">Intermediate</string>
@@ -55,6 +66,7 @@
     <string name="action_hint">HINT</string>
     <string name="action_resign">RESIGN</string>
     <string name="action_menu">MENU</string>
+    <string name="action_swap">⇅ Swap</string>
 
     <!-- Settings -->
     <string name="settings_title">Preferences</string>
@@ -72,4 +84,40 @@
 
     <string name="label_game_log">GAME LOG</string>
     <string name="default_log_entry">1. White starts...</string>
+
+    <!-- Profiles -->
+    <string name="profile_select_title">Who\'s Playing?</string>
+    <string name="btn_new_profile">＋ New Profile</string>
+    <string name="btn_manage_profiles">Manage Profiles</string>
+    <string name="dialog_new_profile">New Profile</string>
+    <string name="label_choose_avatar">Choose Avatar</string>
+    <string name="label_display_name">Display Name</string>
+    <string name="error_name_required">Name required</string>
+    <string name="error_name_exists">Name already exists</string>
+    <string name="btn_create">Create</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_save">Save</string>
+    <string name="btn_delete">Delete</string>
+    <string name="msg_profile_created">Profile created</string>
+    <string name="msg_profile_updated">Profile updated</string>
+    <string name="msg_profile_deleted">Profile deleted</string>
+    <string name="msg_min_profile">You must have at least one profile.</string>
+    <string name="dialog_delete_profile">Delete Profile</string>
+    <string name="msg_delete_confirm">Are you sure you want to delete %1$s? All game history will be lost.</string>
+
+    <!-- History -->
+    <string name="menu_history">📜 HISTORY</string>
+    <string name="history_empty">No games played yet.</string>
+    <string name="filter_all">All</string>
+    <string name="filter_pvb">vs Bot</string>
+    <string name="filter_pvp">vs Player</string>
+    <string name="label_wins">%1$d Wins</string>
+    <string name="label_losses">%1$d Losses</string>
+    <string name="label_draws">%1$d Draws</string>
+    <string name="label_win_rate">%1$.1f%% Win Rate</string>
+    <string name="label_total_games">%1$d Games Played</string>
+    <string name="label_vs_opponent">vs %1$s</string>
+    <string name="mode_pvp">Player vs Player</string>
+    <string name="mode_pvb">Player vs Bot</string>
+    <string name="label_game_details">Played as %1$s %2$s · %3$d moves</string>
 </resources>

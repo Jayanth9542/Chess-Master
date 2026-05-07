@@ -66,6 +66,10 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-livedata:2.8.7'
     implementation 'androidx.lifecycle:lifecycle-runtime:2.8.7'
 
+    // Room persistence
+    implementation 'androidx.room:room-runtime:2.6.1'
+    annotationProcessor 'androidx.room:room-compiler:2.6.1'
+
     // Activity result + back-press handling
     implementation 'androidx.activity:activity:1.9.3'
 

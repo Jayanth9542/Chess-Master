@@ -25,6 +25,9 @@ public final class ActivityMainMenuBinding implements ViewBinding {
   public final MaterialButton btnAbout;
 
   @NonNull
+  public final MaterialCardView btnHistory;
+
+  @NonNull
   public final MaterialCardView btnPlayBot;
 
   @NonNull
@@ -40,11 +43,13 @@ public final class ActivityMainMenuBinding implements ViewBinding {
   public final LinearLayout header;
 
   private ActivityMainMenuBinding(@NonNull ConstraintLayout rootView,
-      @NonNull MaterialButton btnAbout, @NonNull MaterialCardView btnPlayBot,
-      @NonNull MaterialCardView btnPlayPvP, @NonNull MaterialButton btnSettings,
-      @NonNull LinearLayout cardContainer, @NonNull LinearLayout header) {
+      @NonNull MaterialButton btnAbout, @NonNull MaterialCardView btnHistory,
+      @NonNull MaterialCardView btnPlayBot, @NonNull MaterialCardView btnPlayPvP,
+      @NonNull MaterialButton btnSettings, @NonNull LinearLayout cardContainer,
+      @NonNull LinearLayout header) {
     this.rootView = rootView;
     this.btnAbout = btnAbout;
+    this.btnHistory = btnHistory;
     this.btnPlayBot = btnPlayBot;
     this.btnPlayPvP = btnPlayPvP;
     this.btnSettings = btnSettings;
@@ -85,6 +90,12 @@ public final class ActivityMainMenuBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.btn_history;
+      MaterialCardView btnHistory = ViewBindings.findChildViewById(rootView, id);
+      if (btnHistory == null) {
+        break missingId;
+      }
+
       id = R.id.btnPlayBot;
       MaterialCardView btnPlayBot = ViewBindings.findChildViewById(rootView, id);
       if (btnPlayBot == null) {
@@ -115,8 +126,8 @@ public final class ActivityMainMenuBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityMainMenuBinding((ConstraintLayout) rootView, btnAbout, btnPlayBot,
-          btnPlayPvP, btnSettings, cardContainer, header);
+      return new ActivityMainMenuBinding((ConstraintLayout) rootView, btnAbout, btnHistory,
+          btnPlayBot, btnPlayPvP, btnSettings, cardContainer, header);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

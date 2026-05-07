@@ -1,17 +1,24 @@
 package com.chessapp.ui;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import com.chessapp.R;
 import com.chessapp.databinding.ActivityPvbotSetupBinding;
 import com.chessapp.repository.GameRepository;
+import com.google.android.material.card.MaterialCardView;
 
 public class PvBotSetupActivity extends AppCompatActivity {
 
     private ActivityPvbotSetupBinding binding;
     private GameRepository repository;
+    private long activeProfileId;
+
+    private String humanColor = "WHITE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +26,8 @@ public class PvBotSetupActivity extends AppCompatActivity {
         binding = ActivityPvbotSetupBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         repository = new GameRepository(getApplication());
+
+        activeProfileId = getIntent().getLongExtra(GameActivity.EXTRA_PROFILE_ID, -1L);
 
         binding.btnBack.setOnClickListener(v -> finish());
 
@@ -40,9 +49,11 @@ public class PvBotSetupActivity extends AppCompatActivity {
         String lastDiff = repository.getLastDifficulty();
         binding.spinnerDifficulty.setText(getLocalizedDiff(lastDiff), false);
 
+        setupColorCards();
+
         binding.btnStartGame.setOnClickListener(v -> {
             String name = binding.etPlayerName.getText().toString().trim();
-            if (name.isEmpty()) name = "Challenger";
+            if (name.isEmpty()) name = "Player 1";
             
             String selectedText = binding.spinnerDifficulty.getText().toString();
             String difficultyKey = mapToDifficultyKey(selectedText);
@@ -51,13 +62,46 @@ public class PvBotSetupActivity extends AppCompatActivity {
             repository.saveLastDifficulty(difficultyKey);
 
             Intent intent = new Intent(this, GameActivity.class);
-            intent.putExtra("mode", "PVB");
-            intent.putExtra("player1", name);
-            intent.putExtra("player2", "Bot AI");
-            intent.putExtra("difficulty", difficultyKey);
+            intent.putExtra(GameActivity.EXTRA_MODE, "PVB");
+            intent.putExtra(GameActivity.EXTRA_PLAYER1, name);
+            intent.putExtra(GameActivity.EXTRA_PLAYER2, "Bot AI");
+            intent.putExtra(GameActivity.EXTRA_DIFFICULTY, difficultyKey);
+            intent.putExtra(GameActivity.EXTRA_HUMAN_COLOR, humanColor);
+            intent.putExtra(GameActivity.EXTRA_BOARD_FLIPPED, "BLACK".equals(humanColor));
+            intent.putExtra(GameActivity.EXTRA_PROFILE_ID, activeProfileId);
             startActivity(intent);
             finish();
         });
+    }
+
+    private void setupColorCards() {
+        View.OnClickListener listener = v -> {
+            if (v.getId() == R.id.card_play_white) humanColor = "WHITE";
+            else if (v.getId() == R.id.card_play_black) humanColor = "BLACK";
+            updateCardHighlights();
+        };
+
+        binding.cardPlayWhite.setOnClickListener(listener);
+        binding.cardPlayBlack.setOnClickListener(listener);
+
+        updateCardHighlights();
+    }
+
+    private void updateCardHighlights() {
+        highlightCard(binding.cardPlayWhite, "WHITE".equals(humanColor));
+        highlightCard(binding.cardPlayBlack, "BLACK".equals(humanColor));
+    }
+
+    private void highlightCard(MaterialCardView card, boolean selected) {
+        if (selected) {
+            int color = ContextCompat.getColor(this, R.color.brand_primary);
+            card.setStrokeColor(color);
+            card.setStrokeWidth(4);
+            card.setCardBackgroundColor(ColorStateList.valueOf(color).withAlpha(51)); // 20% alpha
+        } else {
+            card.setStrokeWidth(0);
+            card.setCardBackgroundColor(ContextCompat.getColor(this, R.color.brand_surface));
+        }
     }
 
     private String getLocalizedDiff(String key) {

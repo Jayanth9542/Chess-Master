@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.chessapp-mergeDebugResources-30:/values-v17/values-v17.xml",
+            "outputFile": "com.chessapp-mergeDebugResources-33:/values-v17/values-v17.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\jayan\\.gradle\\caches\\9.4.1\\transforms\\a4988fd14f9da314bbc0fc5ff7815c8d\\transformed\\appcompat-1.7.0\\res\\values-v17\\values-v17.xml",
+                    "source": "C:\\Users\\jayan\\.gradle\\caches\\9.4.1\\transforms\\934491998d169f2e0b3f839a6f836b42\\transformed\\appcompat-1.7.0\\res\\values-v17\\values-v17.xml",
                     "from": {
                         "startLines": "2,5,9,12,15,18,22,25,29,33,37,40,43,46,50,53,57",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

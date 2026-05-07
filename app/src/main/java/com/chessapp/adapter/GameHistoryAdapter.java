@@ -1,15 +1,17 @@
 package com.chessapp.adapter;
 
+import android.content.Context;
 import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.chessapp.R;
 import com.chessapp.databinding.ItemGameHistoryBinding;
 import com.chessapp.model.GameRecord;
 
@@ -47,24 +49,26 @@ public class GameHistoryAdapter extends ListAdapter<GameRecord, GameHistoryAdapt
         }
 
         void bind(GameRecord record) {
+            Context context = itemView.getContext();
             String badgeText = "D";
-            int badgeColor = Color.parseColor("#757575");
+            int badgeColor = ContextCompat.getColor(context, R.color.color_draw);
+            
             if ("WIN".equals(record.getResult())) {
                 badgeText = "W";
-                badgeColor = Color.parseColor("#388E3C");
+                badgeColor = ContextCompat.getColor(context, R.color.color_win);
             } else if ("LOSS".equals(record.getResult())) {
                 badgeText = "L";
-                badgeColor = Color.parseColor("#D32F2F");
+                badgeColor = ContextCompat.getColor(context, R.color.color_loss);
             }
             binding.tvResultBadge.setText(badgeText);
             binding.tvResultBadge.setBackgroundTintList(ColorStateList.valueOf(badgeColor));
 
-            binding.tvOpponent.setText("vs " + record.getOpponentName());
-            binding.tvMode.setText("PVP".equals(record.getGameMode()) ? "Player vs Player" : "Player vs Bot");
+            binding.tvOpponent.setText(context.getString(R.string.label_vs_opponent, record.getOpponentName()));
+            binding.tvMode.setText(context.getString("PVP".equals(record.getGameMode()) ? R.string.mode_pvp : R.string.mode_pvb));
             
             String colorEmoji = "WHITE".equals(record.getPlayerColor()) ? "⬜" : "⬛";
-            binding.tvDetails.setText(String.format("Played as %s %s · %d moves", 
-                    colorEmoji, record.getPlayerColor().toLowerCase(), record.getTotalMoves()));
+            binding.tvDetails.setText(context.getString(R.string.label_game_details, 
+                    colorEmoji, record.getPlayerColor().toLowerCase(Locale.getDefault()), record.getTotalMoves()));
 
             Date date = new Date(record.getPlayedAt());
             binding.tvDate.setText(dateFormat.format(date));

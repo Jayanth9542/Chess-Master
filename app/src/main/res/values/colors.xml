@@ -43,4 +43,9 @@
     <color name="tier_magnus">#EC4899</color>
 
     <color name="brand_error">#EF4444</color>
+
+    <!-- Result Badges -->
+    <color name="color_win">#388E3C</color>
+    <color name="color_loss">#D32F2F</color>
+    <color name="color_draw">#757575</color>
 </resources>

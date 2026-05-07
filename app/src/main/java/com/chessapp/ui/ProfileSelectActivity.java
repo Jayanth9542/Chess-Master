@@ -3,9 +3,7 @@ package com.chessapp.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -42,7 +40,7 @@ public class ProfileSelectActivity extends AppCompatActivity implements ProfileA
         setupRecyclerView();
 
         binding.btnNewProfile.setOnClickListener(v -> showCreateProfileDialog());
-        binding.btnManage_profiles.setOnClickListener(v -> {
+        binding.btnManageProfiles.setOnClickListener(v -> {
             startActivity(new Intent(this, ProfileManageActivity.class));
         });
 
@@ -64,7 +62,6 @@ public class ProfileSelectActivity extends AppCompatActivity implements ProfileA
     private void showCreateProfileDialog() {
         DialogCreateProfileBinding dialogBinding = DialogCreateProfileBinding.inflate(getLayoutInflater());
         
-        // Setup avatars RadioGroup
         for (int i = 0; i < avatars.length; i++) {
             RadioButton rb = new RadioButton(this);
             rb.setText(avatars[i]);
@@ -78,10 +75,10 @@ public class ProfileSelectActivity extends AppCompatActivity implements ProfileA
         }
 
         AlertDialog dialog = new MaterialAlertDialogBuilder(this)
-                .setTitle("New Profile")
+                .setTitle(R.string.dialog_new_profile)
                 .setView(dialogBinding.getRoot())
-                .setPositiveButton("Create", null)
-                .setNegativeButton("Cancel", (d, w) -> {
+                .setPositiveButton(R.string.btn_create, null)
+                .setNegativeButton(R.string.btn_cancel, (d, w) -> {
                     if (allProfiles.isEmpty()) finish();
                 })
                 .setCancelable(!allProfiles.isEmpty())
@@ -91,11 +88,11 @@ public class ProfileSelectActivity extends AppCompatActivity implements ProfileA
             dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v -> {
                 String name = dialogBinding.etName.getText().toString().trim();
                 if (TextUtils.isEmpty(name)) {
-                    dialogBinding.tilName.setError("Name required");
+                    dialogBinding.tilName.setError(getString(R.string.error_name_required));
                     return;
                 }
                 if (isDuplicateName(name)) {
-                    dialogBinding.tilName.setError("Name already exists");
+                    dialogBinding.tilName.setError(getString(R.string.error_name_exists));
                     return;
                 }
 
@@ -104,7 +101,7 @@ public class ProfileSelectActivity extends AppCompatActivity implements ProfileA
 
                 repository.insertProfile(new PlayerProfile(name, avatar), id -> {
                     runOnUiThread(() -> {
-                        Toast.makeText(this, "Profile created", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, R.string.msg_profile_created, Toast.LENGTH_SHORT).show();
                         dialog.dismiss();
                     });
                 });

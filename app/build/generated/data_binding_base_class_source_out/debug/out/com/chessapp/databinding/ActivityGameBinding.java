@@ -57,6 +57,22 @@ public final class ActivityGameBinding implements ViewBinding {
   @Nullable
   public final MaterialButton btnSettingsGame;
 
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout-land/</li>
+   * </ul>
+   */
+  @Nullable
+  public final MaterialButton btnSwapBoard;
+
   @NonNull
   public final MaterialButton btnUndo;
 
@@ -148,6 +164,22 @@ public final class ActivityGameBinding implements ViewBinding {
   @NonNull
   public final TextView tvBlackTime;
 
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout-land/</li>
+   * </ul>
+   */
+  @Nullable
+  public final TextView tvBottomPieceIndicator;
+
   @NonNull
   public final TextView tvGameLog;
 
@@ -176,6 +208,22 @@ public final class ActivityGameBinding implements ViewBinding {
   @NonNull
   public final TextView tvPlayer2Name;
 
+  /**
+   * This binding is not available in all configurations.
+   * <p>
+   * Present:
+   * <ul>
+   *   <li>layout/</li>
+   * </ul>
+   *
+   * Absent:
+   * <ul>
+   *   <li>layout-land/</li>
+   * </ul>
+   */
+  @Nullable
+  public final TextView tvTopPieceIndicator;
+
   @NonNull
   public final TextView tvWhiteTime;
 
@@ -183,15 +231,16 @@ public final class ActivityGameBinding implements ViewBinding {
       @NonNull MaterialCardView boardContainer, @NonNull MaterialButton btnBack,
       @NonNull MaterialButton btnHint, @NonNull MaterialButton btnOptions,
       @NonNull MaterialButton btnResign, @Nullable MaterialButton btnSettingsGame,
-      @NonNull MaterialButton btnUndo, @NonNull MaterialCardView cardLogSheet,
-      @NonNull MaterialCardView cardPlayerBottom, @NonNull MaterialCardView cardPlayerTop,
-      @NonNull ChessBoardView chessBoardView, @NonNull View gameControls,
-      @Nullable LinearLayout gameHeader, @Nullable Guideline guidelineGolden,
-      @NonNull LinearProgressIndicator progressThinking, @NonNull ScrollView scrollLog,
-      @Nullable View sectionBoard, @Nullable View sectionControls, @NonNull TextView tvBlackTime,
+      @Nullable MaterialButton btnSwapBoard, @NonNull MaterialButton btnUndo,
+      @NonNull MaterialCardView cardLogSheet, @NonNull MaterialCardView cardPlayerBottom,
+      @NonNull MaterialCardView cardPlayerTop, @NonNull ChessBoardView chessBoardView,
+      @NonNull View gameControls, @Nullable LinearLayout gameHeader,
+      @Nullable Guideline guidelineGolden, @NonNull LinearProgressIndicator progressThinking,
+      @NonNull ScrollView scrollLog, @Nullable View sectionBoard, @Nullable View sectionControls,
+      @NonNull TextView tvBlackTime, @Nullable TextView tvBottomPieceIndicator,
       @NonNull TextView tvGameLog, @NonNull TextView tvGameStatus, @Nullable TextView tvLastMove,
       @NonNull TextView tvPlayer1Name, @NonNull TextView tvPlayer2Name,
-      @NonNull TextView tvWhiteTime) {
+      @Nullable TextView tvTopPieceIndicator, @NonNull TextView tvWhiteTime) {
     this.rootView = rootView;
     this.boardContainer = boardContainer;
     this.btnBack = btnBack;
@@ -199,6 +248,7 @@ public final class ActivityGameBinding implements ViewBinding {
     this.btnOptions = btnOptions;
     this.btnResign = btnResign;
     this.btnSettingsGame = btnSettingsGame;
+    this.btnSwapBoard = btnSwapBoard;
     this.btnUndo = btnUndo;
     this.cardLogSheet = cardLogSheet;
     this.cardPlayerBottom = cardPlayerBottom;
@@ -212,11 +262,13 @@ public final class ActivityGameBinding implements ViewBinding {
     this.sectionBoard = sectionBoard;
     this.sectionControls = sectionControls;
     this.tvBlackTime = tvBlackTime;
+    this.tvBottomPieceIndicator = tvBottomPieceIndicator;
     this.tvGameLog = tvGameLog;
     this.tvGameStatus = tvGameStatus;
     this.tvLastMove = tvLastMove;
     this.tvPlayer1Name = tvPlayer1Name;
     this.tvPlayer2Name = tvPlayer2Name;
+    this.tvTopPieceIndicator = tvTopPieceIndicator;
     this.tvWhiteTime = tvWhiteTime;
   }
 
@@ -279,6 +331,9 @@ public final class ActivityGameBinding implements ViewBinding {
 
       id = R.id.btn_settings_game;
       MaterialButton btnSettingsGame = ViewBindings.findChildViewById(rootView, id);
+
+      id = R.id.btn_swap_board;
+      MaterialButton btnSwapBoard = ViewBindings.findChildViewById(rootView, id);
 
       id = R.id.btn_undo;
       MaterialButton btnUndo = ViewBindings.findChildViewById(rootView, id);
@@ -346,6 +401,9 @@ public final class ActivityGameBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tv_bottom_piece_indicator;
+      TextView tvBottomPieceIndicator = ViewBindings.findChildViewById(rootView, id);
+
       id = R.id.tv_game_log;
       TextView tvGameLog = ViewBindings.findChildViewById(rootView, id);
       if (tvGameLog == null) {
@@ -373,6 +431,9 @@ public final class ActivityGameBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tv_top_piece_indicator;
+      TextView tvTopPieceIndicator = ViewBindings.findChildViewById(rootView, id);
+
       id = R.id.tv_white_time;
       TextView tvWhiteTime = ViewBindings.findChildViewById(rootView, id);
       if (tvWhiteTime == null) {
@@ -380,10 +441,11 @@ public final class ActivityGameBinding implements ViewBinding {
       }
 
       return new ActivityGameBinding((ConstraintLayout) rootView, boardContainer, btnBack, btnHint,
-          btnOptions, btnResign, btnSettingsGame, btnUndo, cardLogSheet, cardPlayerBottom,
-          cardPlayerTop, chessBoardView, gameControls, gameHeader, guidelineGolden,
-          progressThinking, scrollLog, sectionBoard, sectionControls, tvBlackTime, tvGameLog,
-          tvGameStatus, tvLastMove, tvPlayer1Name, tvPlayer2Name, tvWhiteTime);
+          btnOptions, btnResign, btnSettingsGame, btnSwapBoard, btnUndo, cardLogSheet,
+          cardPlayerBottom, cardPlayerTop, chessBoardView, gameControls, gameHeader,
+          guidelineGolden, progressThinking, scrollLog, sectionBoard, sectionControls, tvBlackTime,
+          tvBottomPieceIndicator, tvGameLog, tvGameStatus, tvLastMove, tvPlayer1Name, tvPlayer2Name,
+          tvTopPieceIndicator, tvWhiteTime);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

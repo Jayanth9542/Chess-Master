@@ -18,10 +18,25 @@ import com.chessapp.repository.GameRepository;
 
 public class GameActivity extends AppCompatActivity {
 
+    public static final String EXTRA_MODE           = "mode";
+    public static final String EXTRA_PLAYER1        = "player1";
+    public static final String EXTRA_PLAYER2        = "player2";
+    public static final String EXTRA_DIFFICULTY     = "difficulty";
+    public static final String EXTRA_PLAYER1_COLOR  = "PLAYER1_COLOR";
+    public static final String EXTRA_PLAYER2_COLOR  = "PLAYER2_COLOR";
+    public static final String EXTRA_HUMAN_COLOR    = "HUMAN_COLOR";
+    public static final String EXTRA_BOARD_FLIPPED  = "BOARD_FLIPPED";
+    public static final String EXTRA_PROFILE_ID     = "ACTIVE_PROFILE_ID";
+
     private ActivityGameBinding binding;
     private GameViewModel viewModel;
     private GameRepository repository;
     private boolean isGameOver = false;
+
+    private boolean isBoardFlipped = false;
+    private String player1Color = "WHITE";
+    private String player2Color = "BLACK";
+    private String humanColor   = "WHITE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,17 +47,37 @@ public class GameActivity extends AppCompatActivity {
         viewModel = new ViewModelProvider(this).get(GameViewModel.class);
         repository = new GameRepository(getApplication());
         
+        long activeProfileId = getIntent().getLongExtra(EXTRA_PROFILE_ID, -1L);
+        viewModel.setActiveProfileId(activeProfileId);
+
+        // Read extras with defaults
+        isBoardFlipped = getIntent().getBooleanExtra(EXTRA_BOARD_FLIPPED, false);
+        player1Color = getIntent().getStringExtra(EXTRA_PLAYER1_COLOR);
+        if (player1Color == null) player1Color = "WHITE";
+        player2Color = getIntent().getStringExtra(EXTRA_PLAYER2_COLOR);
+        if (player2Color == null) player2Color = "BLACK";
+        humanColor = getIntent().getStringExtra(EXTRA_HUMAN_COLOR);
+        if (humanColor == null) humanColor = "WHITE";
+
+        if (savedInstanceState == null) {
+            viewModel.setGameStartTimeMs(System.currentTimeMillis());
+        }
+
         setupBoard();
         setupControls();
         observeViewModel();
         
         if (savedInstanceState == null) {
             startNewGame();
+            viewModel.setHumanColor(humanColor);
         }
+
+        updatePlayerBars();
     }
 
     private void setupBoard() {
         binding.chessBoardView.setAnimationsEnabled(repository.isAnimationsEnabled());
+        binding.chessBoardView.setFlipped(isBoardFlipped);
         binding.chessBoardView.setOnMoveSelectedListener(new ChessBoardView.OnMoveSelectedListener() {
             @Override
             public void onMoveSelected(Move move) {
@@ -108,6 +143,12 @@ public class GameActivity extends AppCompatActivity {
         });
 
         binding.btnOptions.setOnClickListener(v -> showGameOptionsDialog());
+
+        binding.btnSwapBoard.setOnClickListener(v -> {
+            isBoardFlipped = !isBoardFlipped;
+            binding.chessBoardView.setFlipped(isBoardFlipped);
+            updatePlayerBars();
+        });
     }
 
     private void showGameOptionsDialog() {
@@ -118,7 +159,9 @@ public class GameActivity extends AppCompatActivity {
                 .show();
 
         view.findViewById(R.id.btn_opt_flip).setOnClickListener(v -> {
-            binding.chessBoardView.setFlipped(!binding.chessBoardView.isFlipped());
+            isBoardFlipped = !isBoardFlipped;
+            binding.chessBoardView.setFlipped(isBoardFlipped);
+            updatePlayerBars();
             dialog.dismiss();
         });
 
@@ -141,10 +184,10 @@ public class GameActivity extends AppCompatActivity {
 
     private void startNewGame() {
         isGameOver = false;
-        String mode = getIntent().getStringExtra("mode");
-        String p1 = getIntent().getStringExtra("player1");
-        String p2 = getIntent().getStringExtra("player2");
-        String diff = getIntent().getStringExtra("difficulty");
+        String mode = getIntent().getStringExtra(EXTRA_MODE);
+        String p1 = getIntent().getStringExtra(EXTRA_PLAYER1);
+        String p2 = getIntent().getStringExtra(EXTRA_PLAYER2);
+        String diff = getIntent().getStringExtra(EXTRA_DIFFICULTY);
 
         GameState.GameMode gMode = "PVB".equals(mode) ? GameState.GameMode.PVB : GameState.GameMode.PVP;
         GameState.Difficulty gDiff = GameState.Difficulty.valueOf(diff != null ? diff : "INTERMEDIATE");
@@ -152,10 +195,41 @@ public class GameActivity extends AppCompatActivity {
         binding.tvPlayer1Name.setText(p1 != null ? p1 : "White");
         binding.tvPlayer2Name.setText(p2 != null ? p2 : "Black");
 
-        // Hide bot timer in PvB mode as requested
         binding.tvBlackTime.setVisibility(gMode == GameState.GameMode.PVB ? View.GONE : View.VISIBLE);
+        binding.btnSwapBoard.setVisibility(gMode == GameState.GameMode.PVP ? View.VISIBLE : View.GONE);
 
         viewModel.startGame(new GameState(gMode, p1, p2, gDiff));
+    }
+
+    private void updatePlayerBars() {
+        String p1Name = getIntent().getStringExtra(EXTRA_PLAYER1);
+        String p2Name = getIntent().getStringExtra(EXTRA_PLAYER2);
+        if (p1Name == null) p1Name = "Player 1";
+        if (p2Name == null) p2Name = "Player 2";
+
+        String p1Indicator = "WHITE".equals(player1Color) ? "♔" : "♚";
+        String p2Indicator = "WHITE".equals(player2Color) ? "♔" : "♚";
+
+        if (!isBoardFlipped) {
+            // Player 1 at bottom, Player 2 at top
+            binding.tvBottomPieceIndicator.setText(p1Indicator);
+            binding.tvPlayer1Name.setText(p1Name);
+            binding.tvWhiteTime.setVisibility(View.VISIBLE); // Logic uses WhiteTimeLD for bottom player usually
+
+            binding.tvTopPieceIndicator.setText(p2Indicator);
+            binding.tvPlayer2Name.setText(p2Name);
+        } else {
+            // Player 2 at bottom, Player 1 at top
+            binding.tvBottomPieceIndicator.setText(p2Indicator);
+            binding.tvPlayer1Name.setText(p2Name);
+
+            binding.tvTopPieceIndicator.setText(p1Indicator);
+            binding.tvPlayer2Name.setText(p1Name);
+        }
+
+        // Note: The timer LD observers in GameActivity currently map whiteTimeLD to tv_white_time 
+        // and blackTimeLD to tv_black_time. To support bar swapping of timers, 
+        // we'll need to adjust the observers.
     }
 
     private void observeViewModel() {
@@ -182,8 +256,14 @@ public class GameActivity extends AppCompatActivity {
             }
         });
 
-        viewModel.getWhiteTimeLD().observe(this, t -> binding.tvWhiteTime.setText(t));
-        viewModel.getBlackTimeLD().observe(this, t -> binding.tvBlackTime.setText(t));
+        viewModel.getWhiteTimeLD().observe(this, t -> {
+            if (!isBoardFlipped) binding.tvWhiteTime.setText(t);
+            else binding.tvBlackTime.setText(t);
+        });
+        viewModel.getBlackTimeLD().observe(this, t -> {
+            if (!isBoardFlipped) binding.tvBlackTime.setText(t);
+            else binding.tvWhiteTime.setText(t);
+        });
 
         viewModel.getLastMoveLD().observe(this, move -> {
             binding.tvLastMove.setText(getString(R.string.label_last_move, move));
@@ -212,7 +292,10 @@ public class GameActivity extends AppCompatActivity {
         new MaterialAlertDialogBuilder(this)
             .setTitle("Game Over")
             .setMessage(result)
-            .setPositiveButton("New Game", (d, w) -> startNewGame())
+            .setPositiveButton("New Game", (d, w) -> {
+                viewModel.setGameStartTimeMs(System.currentTimeMillis());
+                startNewGame();
+            })
             .setNegativeButton("Menu", (d, w) -> finish())
             .setCancelable(false)
             .show();

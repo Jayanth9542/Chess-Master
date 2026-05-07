@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.chessapp-mergeDebugResources-30:/values-h320dp-port-v13/values-h320dp-port-v13.xml",
+            "outputFile": "com.chessapp-mergeDebugResources-33:/values-h320dp-port-v13/values-h320dp-port-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\jayan\\.gradle\\caches\\9.4.1\\transforms\\d80f0688a8f797f5f59428c37e463ffe\\transformed\\material-1.12.0\\res\\values-h320dp-port-v13\\values-h320dp-port-v13.xml",
+                    "source": "C:\\Users\\jayan\\.gradle\\caches\\9.4.1\\transforms\\17283b837f191dad18a5e34f3c310f2e\\transformed\\material-1.12.0\\res\\values-h320dp-port-v13\\values-h320dp-port-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

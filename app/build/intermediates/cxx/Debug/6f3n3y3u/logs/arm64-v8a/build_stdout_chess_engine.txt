@@ -1,0 +1,2 @@
+ninja: Entering directory `C:\Users\jayan\StudioProjects\Chess-Master\app\.cxx\Debug\6f3n3y3u\arm64-v8a'
+ninja: no work to do.

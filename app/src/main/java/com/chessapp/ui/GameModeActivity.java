@@ -9,6 +9,7 @@ import com.chessapp.databinding.ActivityGameModeBinding;
 public class GameModeActivity extends AppCompatActivity {
 
     private ActivityGameModeBinding binding;
+    private long activeProfileId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,14 +17,20 @@ public class GameModeActivity extends AppCompatActivity {
         binding = ActivityGameModeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        activeProfileId = getIntent().getLongExtra("ACTIVE_PROFILE_ID", -1L);
+
         binding.btnBackMode.setOnClickListener(v -> finish());
 
         binding.cardPvb.setOnClickListener(v -> {
-            startActivity(new Intent(this, PvBotSetupActivity.class));
+            Intent intent = new Intent(this, PvBotSetupActivity.class);
+            intent.putExtra("ACTIVE_PROFILE_ID", activeProfileId);
+            startActivity(intent);
         });
 
         binding.cardPvp.setOnClickListener(v -> {
-            startActivity(new Intent(this, PvPSetupActivity.class));
+            Intent intent = new Intent(this, PvPSetupActivity.class);
+            intent.putExtra("ACTIVE_PROFILE_ID", activeProfileId);
+            startActivity(intent);
         });
 
         binding.cardP2p.setOnClickListener(v -> {
