@@ -1,2 +1,4 @@
 ninja: Entering directory `C:\Users\jayan\StudioProjects\Chess-Master\app\.cxx\Debug\6f3n3y3u\arm64-v8a'
-ninja: no work to do.
+[1/3] Building CXX object CMakeFiles/chess_engine.dir/native-lib.cpp.o
+[2/3] Building CXX object CMakeFiles/chess_engine.dir/engine_wrapper.cpp.o
+[3/3] Linking CXX shared library C:\Users\jayan\StudioProjects\Chess-Master\app\build\intermediates\cxx\Debug\6f3n3y3u\obj\arm64-v8a\libchess_engine.so

@@ -16,6 +16,8 @@ import com.google.android.material.snackbar.Snackbar;
 
 import com.chessapp.repository.GameRepository;
 
+import java.util.Locale;
+
 public class GameActivity extends AppCompatActivity {
 
     public static final String EXTRA_MODE           = "mode";
@@ -61,17 +63,15 @@ public class GameActivity extends AppCompatActivity {
 
         if (savedInstanceState == null) {
             viewModel.setGameStartTimeMs(System.currentTimeMillis());
+            // Set human color BEFORE starting the game so bot can trigger opening move
+            viewModel.setHumanColor(humanColor);
+            startNewGame();
         }
 
         setupBoard();
         setupControls();
         observeViewModel();
         
-        if (savedInstanceState == null) {
-            startNewGame();
-            viewModel.setHumanColor(humanColor);
-        }
-
         updatePlayerBars();
     }
 
@@ -211,25 +211,18 @@ public class GameActivity extends AppCompatActivity {
         String p2Indicator = "WHITE".equals(player2Color) ? "♔" : "♚";
 
         if (!isBoardFlipped) {
-            // Player 1 at bottom, Player 2 at top
             binding.tvBottomPieceIndicator.setText(p1Indicator);
             binding.tvPlayer1Name.setText(p1Name);
-            binding.tvWhiteTime.setVisibility(View.VISIBLE); // Logic uses WhiteTimeLD for bottom player usually
 
             binding.tvTopPieceIndicator.setText(p2Indicator);
             binding.tvPlayer2Name.setText(p2Name);
         } else {
-            // Player 2 at bottom, Player 1 at top
             binding.tvBottomPieceIndicator.setText(p2Indicator);
             binding.tvPlayer1Name.setText(p2Name);
 
             binding.tvTopPieceIndicator.setText(p1Indicator);
             binding.tvPlayer2Name.setText(p1Name);
         }
-
-        // Note: The timer LD observers in GameActivity currently map whiteTimeLD to tv_white_time 
-        // and blackTimeLD to tv_black_time. To support bar swapping of timers, 
-        // we'll need to adjust the observers.
     }
 
     private void observeViewModel() {

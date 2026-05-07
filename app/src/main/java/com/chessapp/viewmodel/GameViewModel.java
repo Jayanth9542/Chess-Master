@@ -130,19 +130,26 @@ public class GameViewModel extends AndroidViewModel {
         if (gameState == null || gameState.isGameOver()) return;
 
         ChessBoard board = gameState.getBoard();
-        if (gameState.getMode() == GameState.GameMode.PVB && !board.isWhiteToMove()) {
-            return;
+        
+        // Prevent human moving if it's the bot's turn
+        if (gameState.getMode() == GameState.GameMode.PVB) {
+            boolean humanIsWhite = "WHITE".equals(humanColor);
+            if (board.isWhiteToMove() != humanIsWhite) {
+                return;
+            }
         }
 
         synchronized (board) {
-            String timeStr = gameState.getWhiteTimeDisplay();
+            String moverColor = board.isWhiteToMove() ? "White" : "Black";
+            String timeStr = board.isWhiteToMove() ? gameState.getWhiteTimeDisplay() : gameState.getBlackTimeDisplay();
+            
             gameState.pauseTurnTimer();
             board.makeMove(move);
             
             String uci = move.toUCI();
             lastMoveLD.setValue(uci);
             lastMoveObjLD.setValue(move);
-            addToLog("White: " + uci + " (" + timeStr + ")");
+            addToLog(moverColor + ": " + uci + " (" + timeStr + ")");
 
             boardLD.setValue(board);
             updateTimers();
@@ -151,7 +158,8 @@ public class GameViewModel extends AndroidViewModel {
 
         if (checkGameOver()) return;
 
-        if (gameState.getMode() == GameState.GameMode.PVB && !board.isWhiteToMove()) {
+        // If PVB and it is now the bot's turn, request move
+        if (gameState.getMode() == GameState.GameMode.PVB && board.isWhiteToMove() == isBotWhite()) {
             requestBotMove();
         } else {
             gameState.startTurnTimer();
@@ -178,8 +186,9 @@ public class GameViewModel extends AndroidViewModel {
                 }
 
                 Move move = parseBotMove(uci);
-                String timeStr = gameState.getBlackTimeDisplay();
                 ChessBoard board = gameState.getBoard();
+                String moverColor = board.isWhiteToMove() ? "White" : "Black";
+                String timeStr = board.isWhiteToMove() ? gameState.getWhiteTimeDisplay() : gameState.getBlackTimeDisplay();
 
                 if (move == null) {
                     synchronized (board) {
@@ -196,13 +205,14 @@ public class GameViewModel extends AndroidViewModel {
                 Thread.sleep(1500);
 
                 synchronized (board) {
-                    if (gameState.isGameOver() || board.isWhiteToMove()) return;
+                    // Safety check: is it still the bot's turn?
+                    if (gameState.isGameOver() || board.isWhiteToMove() != isBotWhite()) return;
 
                     board.makeMove(move);
                     boardLD.postValue(board);
                     lastMoveLD.postValue(move.toUCI());
                     lastMoveObjLD.postValue(move);
-                    addToLogPost("Black: " + move.toUCI() + " (" + timeStr + ")");
+                    addToLogPost(moverColor + ": " + move.toUCI() + " (" + timeStr + ")");
                     updateTimersPost();
                     statusLD.postValue(board.getGameStatus());
                     currentPlayerLD.postValue(gameState.getCurrentPlayerName());
@@ -256,9 +266,16 @@ public class GameViewModel extends AndroidViewModel {
 
         String res = "DRAW";
         String status = gameState.getBoard().getGameStatus();
-        if (status.contains("White wins")) res = "WIN";
-        else if (status.contains("Black wins")) res = "LOSS";
-        else if (status.contains("Resignation")) {
+        
+        boolean whiteWins = status.contains("White wins");
+        boolean blackWins = status.contains("Black wins");
+        
+        if (whiteWins) {
+            res = humanColor.equals("WHITE") ? "WIN" : "LOSS";
+        } else if (blackWins) {
+            res = humanColor.equals("BLACK") ? "WIN" : "LOSS";
+        } else if (status.contains("Resignation")) {
+             // In PvB, Player 1 is always human. In PvP, Player 1 is white by default logic but here we check winner name.
              if (status.contains(gameState.getPlayer1Name())) res = "WIN";
              else res = "LOSS";
         }
@@ -269,10 +286,10 @@ public class GameViewModel extends AndroidViewModel {
                 gameState.getPlayer2Name(),
                 gameState.getMode().name(),
                 res,
-                "WHITE",
+                humanColor,
                 gameState.getBoard().getMoveCount(),
                 duration,
-                null // FEN after move 10 not implemented here for simplicity
+                null
         );
         if (gameState.getMode() == GameState.GameMode.PVB) {
             record.setDifficulty(gameState.getDifficulty().name());
@@ -365,8 +382,12 @@ public class GameViewModel extends AndroidViewModel {
 
     public void resign() {
         if (gameState == null || gameState.isGameOver()) return;
+        
+        // Corrected resignation logic: current player to move is the one resigning.
+        // Winner is the OTHER player.
         String winner = gameState.getBoard().isWhiteToMove() ? gameState.getPlayer2Name() : gameState.getPlayer1Name();
         if (winner == null || winner.isEmpty()) winner = gameState.getBoard().isWhiteToMove() ? "Black" : "White";
+
         String msg = "Resignation. " + winner + " wins!";
         gameState.setGameOver(true, msg);
         saveGameRecord();
