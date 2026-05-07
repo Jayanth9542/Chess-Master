@@ -8,6 +8,8 @@
     <dimen name="brand_spacing_xl">24dp</dimen>
     <dimen name="brand_spacing_xxl">36dp</dimen>
 
+    <dimen name="app_top_gap">24dp</dimen>
+
     <!-- UI Geometry -->
     <dimen name="brand_corner_s">4dp</dimen>
     <dimen name="brand_corner_m">8dp</dimen>

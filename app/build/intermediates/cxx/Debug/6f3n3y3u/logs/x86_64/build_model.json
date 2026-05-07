@@ -30,6 +30,7 @@
     "variantName": "debug",
     "isDebuggableEnabled": true,
     "validAbiList": [
+      "arm64-v8a",
       "x86_64"
     ],
     "buildTargetSet": [],
@@ -156,7 +157,6 @@
         "rootBuildGradleFolder": "C:\\Users\\jayan\\StudioProjects\\Chess-Master",
         "sdkFolder": "C:\\Users\\jayan\\AppData\\Local\\Android\\Sdk",
         "isBuildOnlyTargetAbiEnabled": true,
-        "ideBuildTargetAbi": "x86_64,arm64-v8a",
         "isCmakeBuildCohabitationEnabled": false,
         "isPrefabEnabled": false
       },

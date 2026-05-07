@@ -33,6 +33,7 @@
     <color name="tier_grandmaster">#EF4444</color>
     <color name="tier_intermediate">#3B82F6</color>
     <color name="tier_magnus">#EC4899</color>
+    <dimen name="app_top_gap">24dp</dimen>
     <dimen name="board_container_max_width">400dp</dimen>
     <dimen name="brand_button_height">48dp</dimen>
     <dimen name="brand_card_elevation">4dp</dimen>

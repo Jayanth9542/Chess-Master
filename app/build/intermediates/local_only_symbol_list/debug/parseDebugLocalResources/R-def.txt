@@ -44,6 +44,7 @@ color tier_expert
 color tier_grandmaster
 color tier_intermediate
 color tier_magnus
+dimen app_top_gap
 dimen board_container_max_width
 dimen brand_button_height
 dimen brand_card_elevation

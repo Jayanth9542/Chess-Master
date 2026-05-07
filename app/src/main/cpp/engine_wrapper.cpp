@@ -141,8 +141,14 @@ namespace chess {
         }
 
         // Close the unused ends in this thread (the process-wide descriptors)
-        if (self->toEngine_[0]   != STDIN_FILENO)  close(self->toEngine_[0]);
-        if (self->fromEngine_[1] != STDOUT_FILENO) close(self->fromEngine_[1]);
+        if (self->toEngine_[0] != STDIN_FILENO) {
+            close(self->toEngine_[0]);
+            self->toEngine_[0] = -1;
+        }
+        if (self->fromEngine_[1] != STDOUT_FILENO) {
+            close(self->fromEngine_[1]);
+            self->fromEngine_[1] = -1;
+        }
 
         char progName[] = "stockfish";
         char* argv[]    = { progName, nullptr };

@@ -2226,6 +2226,7 @@ dimen abc_text_size_subhead_material
 dimen abc_text_size_subtitle_material_toolbar
 dimen abc_text_size_title_material
 dimen abc_text_size_title_material_toolbar
+dimen app_top_gap
 dimen appcompat_dialog_background_inset
 dimen board_container_max_width
 dimen brand_button_height

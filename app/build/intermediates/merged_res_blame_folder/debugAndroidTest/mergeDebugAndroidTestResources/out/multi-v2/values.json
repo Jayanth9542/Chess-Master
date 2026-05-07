@@ -4,7 +4,7 @@
             "outputFile": "com.chessapp.test.app-mergeDebugAndroidTestResources-2:/values/values.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\jayan\\.gradle\\caches\\9.3.1\\transforms\\1e12f838afe64f13a1e72472931b2162\\workspace\\transformed\\jetified-core-1.6.1\\res\\values\\values.xml",
+                    "source": "C:\\Users\\jayan\\.gradle\\caches\\9.4.1\\transforms\\66027d461c153b12d50008ca934026a8\\transformed\\core-1.6.1\\res\\values\\values.xml",
                     "from": {
                         "startLines": "4,11",
                         "startColumns": "0,0",
